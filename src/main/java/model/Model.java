@@ -39,7 +39,18 @@ public class Model {
         Review r1 = new Review(model.getCourse("IX10 Basic Physics").get(0),
                                 model.getUser("frodo").get(0),
                                 3,4,2,5,
-                                "Boring coure, good teacher!");
+                                "Boring course, good teacher!");
+        model.saveReview(r1);
+        Review r2 = new Review(model.getCourse("ID1212 Computer Science").get(0),
+                model.getUser("gandalf").get(0),
+                1,2,3,2,
+                "Boring course, good teacher!");
+        model.saveReview(r2);
+        Review r3 = new Review(model.getCourse("IX10 Basic Physics").get(0),
+                model.getUser("gandalf").get(0),
+                4,4,4,3,
+                "Boring course, good teacher!");
+        model.saveReview(r3);
 
         System.out.println("Schools in DB: " + model.getAllScools());
         System.out.println("Courses in DB: " + model.getAllCourses());
@@ -115,5 +126,28 @@ public class Model {
         List<User> userList = session.createQuery("from User").getResultList();
         session.getTransaction().commit();
         return userList;
+    }
+
+    public void saveReview(Review review){
+        session = factory.getCurrentSession();
+        session.beginTransaction();
+        session.save(review);
+        session.getTransaction().commit();
+    }
+
+    public List<Review> getReviews(String coursename){
+        session = factory.getCurrentSession();
+        session.beginTransaction();
+        List<Review> reviewList = session.createQuery("from Review r where r.course_name='" + coursename + "'").getResultList();
+        session.getTransaction().commit();
+        return reviewList;
+    }
+
+    public List<Review> getAllReviews(){
+        session = factory.getCurrentSession();
+        session.beginTransaction();
+        List<Review> reviewList = session.createQuery("from Review").getResultList();
+        session.getTransaction().commit();
+        return reviewList;
     }
 }
