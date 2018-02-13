@@ -7,6 +7,11 @@ public class CourseRest {
     private String name;
     private String school;
 
+    public CourseRest(String name, String school) {
+        this.name = name;
+        this.school = school;
+    }
+
     public String getName() {
         return name;
     }
