@@ -1,11 +1,13 @@
 package view.entrypoints;
 
+import common.CourseDTO;
 import controller.Controller;
 import view.rest.CourseRest;
 import view.rest.ReviewRest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.util.ArrayList;
 import java.util.List;
 
 @Path("/courses")
@@ -17,20 +19,26 @@ public class Courses {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void createCourse(CourseRest courseRequest) {
-        controller.createCourse(courseRequest);
+        CourseDTO courseDTO = new CourseDTO(courseRequest.getName(), courseRequest.getSchool());
+        controller.createCourse(courseDTO);
     }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<CourseRest> getCourses() {
-        return controller.getCourses();
+        List<CourseDTO> dtoList = controller.getCourses();
+        List<CourseRest> courseRests = new ArrayList<CourseRest>();
+        for(CourseDTO dto : dtoList)
+            courseRests.add(new CourseRest(dto.getName(), dto.getSchool()));
+        return courseRests;
     }
 
     @GET
     @Path("/{name}")
     @Produces(MediaType.APPLICATION_JSON)
     public CourseRest getCourse(@PathParam("name") String name) {
-        return controller.getCourse(name);
+        CourseDTO courseDTO = controller.getCourse(name);
+        return new CourseRest(courseDTO.getName(), courseDTO.getSchool());
     }
 
     @GET
@@ -45,7 +53,8 @@ public class Courses {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void updateCourse(@PathParam("name") String name, CourseRest course) {
-        controller.updateCourse(name, course);
+        CourseDTO courseDTO = new CourseDTO(course.getName(), course.getSchool());
+        controller.updateCourse(name, courseDTO);
     }
 
 }
