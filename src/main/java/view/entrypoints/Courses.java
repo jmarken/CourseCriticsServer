@@ -2,6 +2,7 @@ package view.entrypoints;
 
 import controller.Controller;
 import view.rest.CourseRest;
+import view.rest.ReviewRest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -32,6 +33,13 @@ public class Courses {
         return controller.getCourse(name);
     }
 
+    @GET
+    @Path("/reviews")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<ReviewRest> getReviews() {
+        return controller.getReviews;
+    }
+
     @PUT
     @Path("/{name}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -40,10 +48,4 @@ public class Courses {
         controller.updateCourse(name, course);
     }
 
-    @DELETE
-    @Path("/{name}")
-    @Produces(MediaType.APPLICATION_JSON)
-    public CourseRest deleteCourse(@PathParam("name") String name) {
-        return controller.deleteCourse(name);
-    }
 }
