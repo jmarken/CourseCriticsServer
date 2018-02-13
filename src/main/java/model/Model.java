@@ -55,7 +55,18 @@ public class Model {
         System.out.println("Schools in DB: " + model.getAllScools());
         System.out.println("Courses in DB: " + model.getAllCourses());
         System.out.println("Users in DB: " + model.getAllUsers());
-        System.out.println("Reviews in DB: " + model.getAllReviews());
+        System.out.println("Reviews in DB: ");
+        for(Review review : model.getAllReviews()){
+            System.out.println("---------------------------------------");
+            System.out.println("Course: " + review.getCourse().getName() +
+                                "\nUser: " + review.getUser().getUsername() +
+                                "\nQuality: " + review.getQuality()+
+                                "\nRelevance: " + review.getRelevance()+
+                                "\nDifficulty: " + review.getDifficulty()+
+                                "\nTeaching: " + review.getTeaching()+
+                                "\nComment: " + review.getComment());
+            System.out.println("---------------------------------------");
+        }
 
     }
 
