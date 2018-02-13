@@ -1,41 +1,18 @@
-package model.Entity;
+package common;
 
-import javax.persistence.*;
-import java.io.Serializable;
-
-@Entity
-@Table(name="review")
-public class Review implements Serializable{
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name="course_name")
-    private Course course;
-
-    @Id
-    @ManyToOne
-    @JoinColumn(name="user_username")
-    private User user;
-
-    @Column
+public class ReviewDTO {
+    private String course;
+    private String user;
     private int quality;
-
-    @Column
     private int relevance;
-
-    @Column
     private int difficulty;
-
-    @Column
     private int teaching;
-
-    @Column
     private String comment;
 
-    public Review() {
+    public ReviewDTO() {
     }
 
-    public Review(Course course, User user, int quality, int relevance, int difficulty, int teaching, String comment) {
+    public ReviewDTO(String course, String user, int quality, int relevance, int difficulty, int teaching, String comment) {
         this.course = course;
         this.user = user;
         this.quality = quality;
@@ -45,19 +22,19 @@ public class Review implements Serializable{
         this.comment = comment;
     }
 
-    public Course getCourse() {
+    public String getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(String course) {
         this.course = course;
     }
 
-    public User getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(String user) {
         this.user = user;
     }
 
@@ -99,5 +76,18 @@ public class Review implements Serializable{
 
     public void setComment(String comment) {
         this.comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return "ReviewDTO{" +
+                "course='" + course + '\'' +
+                ", user='" + user + '\'' +
+                ", quality=" + quality +
+                ", relevance=" + relevance +
+                ", difficulty=" + difficulty +
+                ", teaching=" + teaching +
+                ", comment='" + comment + '\'' +
+                '}';
     }
 }

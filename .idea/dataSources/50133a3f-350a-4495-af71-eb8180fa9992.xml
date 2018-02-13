@@ -79,8 +79,8 @@
     </index>
     <key id="28" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>course_name
-user_username</ColNames>
+      <ColNames>user_username
+course_name</ColNames>
       <Primary>1</Primary>
     </key>
     <foreign-key id="29" parent="11" name="fk_review_course1">
