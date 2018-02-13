@@ -116,12 +116,17 @@ public class DBOperations {
 
     }
 
-    public List<User> getUser(String username){
+    public User getUser(String username){
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List<User> userList = session.createQuery("from User u where u.username='" + username + "'").getResultList();
+        User user = new User();
+        try{
+            user = (User) session.createQuery("from User u where u.username='" + username + "'").getResultList().get(0);
+        }catch (IndexOutOfBoundsException e){
+            user = null;
+        }
         session.getTransaction().commit();
-        return userList;
+        return user;
     }
 
     public List<User> getAllUsers(){

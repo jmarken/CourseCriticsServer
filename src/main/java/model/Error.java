@@ -1,6 +1,6 @@
 package model;
 
-public class Error {
+public class Error extends Exception{
     public static class SaveSchoolException extends Exception{
         public SaveSchoolException(String message){
             super(message);
