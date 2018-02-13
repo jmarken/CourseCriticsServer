@@ -1,6 +1,11 @@
 package model.Entity;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="course")
@@ -13,6 +18,10 @@ public class Course {
     @OneToOne
     @JoinColumn(name="school_name")
     private School school;
+
+    @LazyCollection(LazyCollectionOption.FALSE)
+    @OneToMany(mappedBy="course")
+    private List<Review> reviews;
 
     public Course() {
     }
@@ -38,11 +47,29 @@ public class Course {
         this.school = school;
     }
 
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
     @Override
     public String toString() {
         return "Course{" +
                 "name='" + name + '\'' +
                 ", school=" + school +
+                ", reviews=" + reviews +
                 '}';
     }
+
+    public void addReview(Review review){
+        if(reviews == null){
+            reviews = new ArrayList<Review>();
+        }
+        reviews.add(review);
+        review.setCourse(this);
+    }
+
 }

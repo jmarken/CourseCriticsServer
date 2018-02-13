@@ -1,13 +1,14 @@
 package model.Entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="review ")
-public class Review {
+public class Review implements Serializable{
 
     @Id
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="course_name")
     private Course course;
 

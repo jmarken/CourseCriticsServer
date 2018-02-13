@@ -1,5 +1,8 @@
 package model.Entity;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +18,7 @@ public class User {
     @Column(name="password")
     private String password;
 
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy="user")
     private List<Review> reviews;
 
