@@ -1,5 +1,6 @@
 package model;
 
+import common.CourseDTO;
 import common.ErrorMessages;
 import common.UserDTO;
 import model.Entity.*;
@@ -35,12 +36,28 @@ public class Model{
         }
     }
 
-    public Boolean verifyUser(UserDTO verifyUser){
-        User dbUser = dbo.getUser(verifyUser.getUsername());
+    public Boolean login(UserDTO userDTO){
+        User dbUser = dbo.getUser(userDTO.getUsername());
         if(dbUser == null){
             return false;
         }else{
-            return dbUser.getPassword().equals(verifyUser.getPassword());
+            return dbUser.getPassword().equals(userDTO.getPassword());
         }
     }
+
+    public void createCourse (CourseDTO courseDTO) throws Error.SaveCourseException{
+        School school = new School(courseDTO.getSchool());
+        dbo.saveSchool(school);
+        school = dbo.getSchool(courseDTO.getSchool());
+        Course course = new Course(courseDTO.getName(), school);
+        System.out.println(school);
+        System.out.println(course);
+        try{
+            dbo.saveCourse(course);
+        }catch (Error.SaveCourseException sce){
+            throw sce;
+        }
+    }
+
+
 }

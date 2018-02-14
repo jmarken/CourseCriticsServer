@@ -1,5 +1,6 @@
 package controller;
 
+import common.CourseDTO;
 import common.UserDTO;
 import model.Model;
 
@@ -15,7 +16,17 @@ public class Controller {
 
     }
 
-    public Boolean verifyUser(UserDTO verifyUser){
-        return model.verifyUser(verifyUser);
+    public Boolean login(UserDTO userDTO){
+        return model.login(userDTO);
     }
+
+    public void createCourse(CourseDTO courseDTO) throws Exception{
+        try{
+            model.createCourse(courseDTO);
+        }catch (Exception e){
+            throw e;
+        }
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package view;
 
+import common.CourseDTO;
 import common.UserDTO;
 import controller.Controller;
 
@@ -9,13 +10,17 @@ public class Tester {
 
         UserDTO user = new UserDTO("arwen", "password");
 
+        CourseDTO courseDTO = new CourseDTO("ET01 Movie Theories", "KTH");
+        System.out.println(courseDTO);
+
+        //DUPE
+        //CourseDTO courseDTO = new CourseDTO("IX10 Basic Physics", "KTH");
+
         try{
-            controller.registerUser(user);
+
+            controller.createCourse(courseDTO);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
-
-        System.out.println(controller.verifyUser(user));
-
     }
 }
