@@ -1,6 +1,7 @@
 package view;
 
 import common.CourseDTO;
+import common.ReviewDTO;
 import common.UserDTO;
 import controller.Controller;
 
@@ -11,13 +12,11 @@ public class Tester {
 
 
         try{
-            UserDTO userBefore = new UserDTO("gimli", "moria");
-            controller.createUser(userBefore);
-            System.out.println(controller.login(userBefore));
-            UserDTO userAfter = new UserDTO("gimli", "middleearth");
-            controller.updateUser(userAfter);
-            System.out.println(controller.login(userBefore));
-            System.out.println(controller.login(userAfter));
+            ReviewDTO review = new ReviewDTO("ID1212 Computer Science",
+                    "frodo",
+                    1,2,3,4,
+                    "This is a comment!");
+            controller.createReview(review);
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

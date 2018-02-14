@@ -62,4 +62,11 @@ public class Controller {
             throw e;
         }
     }
+    public void createReview(ReviewDTO reviewDTO) throws Exception{
+        try{
+            model.createReview(reviewDTO);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }
