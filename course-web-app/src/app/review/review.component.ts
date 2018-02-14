@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Response } from '@angular/http'
+import { ReviewService } from './review.service';
 
 @Component({
   selector: 'app-review',
@@ -7,9 +11,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private reviewService: ReviewService) { }
 
   ngOnInit() {
+  }
+
+  onSubmitReview(form: NgForm) {
+      const value = form.value;
+      console.log(value);
+      this.reviewService.getUsers()
+      .subscribe(
+      (response: Response) => {
+        const data = response.json();
+        console.log(data)
+      },
+
+      (error) => console.log(error)
+    );
+      this.router.navigate(['/home']);
   }
 
 }
