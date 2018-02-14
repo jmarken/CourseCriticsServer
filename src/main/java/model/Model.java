@@ -43,9 +43,14 @@ public class Model{
         }
     }
 
-    public void createCourse (CourseDTO courseDTO) throws Error.SaveCourseException{
+    public void createCourse (CourseDTO courseDTO) throws Error.SaveCourseException, Error.SaveSchoolException {
         School school = new School(courseDTO.getSchool());
-        dbo.saveSchool(school);
+        try {
+            dbo.saveSchool(school);
+        }catch (Error.SaveSchoolException sse){
+            throw sse;
+        }
+
         school = dbo.getSchool(courseDTO.getSchool());
         Course course = new Course(courseDTO.getName(), school);
         System.out.println(school);
@@ -82,6 +87,7 @@ public class Model{
         List<ReviewDTO> reviewDTOList = new ArrayList<ReviewDTO>();
         for(Review review : dbo.getCourseReviews(courseName)){
             ReviewDTO reviewDTO = new ReviewDTO(review.getCourse().getName(),
+                                                review.getCourse().getSchool().getName(),
                                                 review.getUser().getUsername(),
                                                 review.getQuality(),
                                                 review.getRelevance(),
@@ -106,6 +112,7 @@ public class Model{
         List<ReviewDTO> reviewDTOList = new ArrayList<ReviewDTO>();
         for(Review review : dbo.getUsersReviews(userName)){
             ReviewDTO reviewDTO = new ReviewDTO(review.getCourse().getName(),
+                                                review.getCourse().getSchool().getName(),
                                                 review.getUser().getUsername(),
                                                 review.getQuality(),
                                                 review.getRelevance(),
@@ -127,12 +134,29 @@ public class Model{
         }
     }
 
-    public void createReview(ReviewDTO reviewDTO) throws Error.SaveReviewException{
+    public void createReview(ReviewDTO reviewDTO) throws Error.SaveReviewException, Error.SaveCourseException, Error.SaveSchoolException {
         User user = dbo.getUser(reviewDTO.getUser());
         if(user == null){
             throw new Error.SaveReviewException(ErrorMessages.SAVE_REVIEW_FAILED.getErrorMessage());
         }
         Course course = dbo.getCourse(reviewDTO.getCourse());
+        if(course == null){
+            try{
+                School school = dbo.getSchool(reviewDTO.getSchool());
+                if(school == null){
+                    school = new School(reviewDTO.getSchool());
+                    try{
+                        dbo.saveSchool(school);
+                    }catch (Error.SaveSchoolException sse){
+                        throw sse;
+                    }
+                }
+                course = new Course(reviewDTO.getCourse(), school);
+                dbo.saveCourse(course);
+            }catch (Error.SaveCourseException sce){
+                throw sce;
+            }
+        }
         Review review = new Review(course,
                                     user,
                                     reviewDTO.getQuality(),
