@@ -13,19 +13,17 @@ import java.util.List;
 
 @Path("/users")
 public class Users {
-    //@Inject
     private Controller controller = new Controller();
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public UserDTO createUser(UserDTO userRequest) {
+    public void createUser(UserDTO userRequest) {
         try {
             controller.createUser(userRequest);
         } catch (Exception e) {
             throw new ServerError(e.getMessage());
         }
-        return userRequest;
     }
 
     @POST
@@ -33,13 +31,19 @@ public class Users {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public LoginResponse login(UserDTO userRequest) {
+        controller.login(userRequest);
         return controller.login(userRequest) ? new LoginResponse(userRequest.getUsername(), "Login Success") : new LoginResponse(userRequest.getUsername(), "Login Failure");
     }
 
-    @GET
+    @POST
+    @Path("/{username}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
-    public UserDTO test() {
-        return new UserDTO();
+    public void createReview(ReviewDTO reviewRequest) {
+        try {
+            return controller.createReview(reviewRequest);
+        } catch (Exception e) {
+            throw new ServerError(e.getMessage());
+        }
     }
 
     @GET

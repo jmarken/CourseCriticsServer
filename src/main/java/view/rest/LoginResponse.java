@@ -7,6 +7,8 @@ public class LoginResponse {
     private String username;
     private String success;
 
+    public LoginResponse() {    }
+
     public LoginResponse(String username, String success) {
         this.username = username;
         this.success = success;
