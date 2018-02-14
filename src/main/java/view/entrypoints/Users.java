@@ -40,7 +40,7 @@ public class Users {
     @Produces(MediaType.APPLICATION_JSON)
     public void createReview(ReviewDTO reviewRequest) {
         try {
-            return controller.createReview(reviewRequest);
+            controller.createReview(reviewRequest);
         } catch (Exception e) {
             throw new ServerError(e.getMessage());
         }
@@ -57,7 +57,7 @@ public class Users {
     @Path("/{username}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateUser(@PathParam("username") String username, UserDTO userRequest) {
+    public void updateUser(UserDTO userRequest) {
         try {
             controller.updateUser(userRequest);
         } catch (Exception e) {
