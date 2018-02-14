@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="358357b4-966d-4728-95e2-5b2ccd79f575" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/model.mwb" afterPath="$PROJECT_DIR$/db/model.mwb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/controller/Controller.java" afterPath="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/model/Model.java" afterPath="$PROJECT_DIR$/src/main/java/model/Model.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/view/Tester.java" afterPath="$PROJECT_DIR$/src/main/java/view/Tester.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,8 +42,8 @@
           <file leaf-file-name="Model.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="881">
-                  <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+                <state relative-caret-position="27">
+                  <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -73,12 +70,12 @@
           <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="513">
-                  <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+                <state relative-caret-position="297">
+                  <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="e#389#390#0" expanded="true" />
-                    <element signature="e#432#433#0" expanded="true" />
+                    <element signature="e#385#386#0" expanded="true" />
+                    <element signature="e#428#429#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -98,7 +95,7 @@
             <entry file="file://$PROJECT_DIR$/src/main/java/model/ExampleData.java">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="594">
-                  <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+                  <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
                   <folding>
                     <element signature="imports" expanded="true" />
                   </folding>
@@ -161,8 +158,8 @@
         <option value="$PROJECT_DIR$/src/main/java/model/ExampleData.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/DBOperations.java" />
         <option value="$PROJECT_DIR$/src/main/java/view/Tester.java" />
-        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/java/model/Model.java" />
+        <option value="$PROJECT_DIR$/src/main/java/controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -481,12 +478,12 @@
       <workItem from="1518513389561" duration="3392000" />
       <workItem from="1518517172249" duration="2931000" />
       <workItem from="1518526135350" duration="11429000" />
-      <workItem from="1518597515248" duration="1399000" />
+      <workItem from="1518597515248" duration="1489000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19151000" />
+    <option name="totallyTimeSpent" value="19241000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="3222" height="1762" extended-state="6" />
@@ -583,8 +580,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#432#433#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -913,7 +910,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/model/ExampleData.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
-          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -930,24 +927,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+        <state relative-caret-position="27">
+          <caret line="29" column="22" lean-forward="false" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#432#433#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/model/Model.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="61" column="0" lean-forward="true" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+        <state relative-caret-position="297">
+          <caret line="11" column="24" lean-forward="false" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
+            <element signature="e#428#429#0" expanded="true" />
           </folding>
         </state>
       </provider>

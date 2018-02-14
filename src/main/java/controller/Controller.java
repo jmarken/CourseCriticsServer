@@ -7,9 +7,9 @@ import model.Model;
 public class Controller {
     Model model = new Model();
 
-    public void registerUser(UserDTO registerUser) throws Exception{
+    public void createUser(UserDTO registerUser) throws Exception{
         try {
-            model.registerUser(registerUser);
+            model.createUser(registerUser);
         }catch (Exception ex){
             throw ex;
         }

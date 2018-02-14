@@ -27,7 +27,7 @@ public class Model{
 
     }
 
-    public void registerUser(UserDTO registerUser) throws Error.SaveUserException{
+    public void createUser(UserDTO registerUser) throws Error.SaveUserException{
         try{
             User newUser = new User(registerUser.getUsername(), registerUser.getPassword());
             dbo.saveUser(newUser);
