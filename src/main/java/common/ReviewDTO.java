@@ -1,5 +1,8 @@
 package common;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class ReviewDTO {
     private String course;
     private String user;
