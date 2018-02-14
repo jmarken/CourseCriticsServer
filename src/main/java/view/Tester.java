@@ -11,7 +11,8 @@ public class Tester {
 
 
         try{
-            System.out.println(controller.getCourses());
+            System.out.println(controller.getCourse("ET01 Movie Theories"));
+            System.out.println(controller.getCourse("Exist?"));
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

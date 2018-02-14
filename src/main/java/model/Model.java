@@ -70,4 +70,15 @@ public class Model{
         return courseDTOList;
     }
 
+    public CourseDTO getCourse(String name){
+        Course course = dbo.getCourse(name);
+        if(course == null){
+            return null;
+        }
+        else {
+            CourseDTO courseDTO = new CourseDTO(course.getName(), course.getSchool().getName());
+            return courseDTO;
+        }
+    }
+
 }

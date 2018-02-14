@@ -2,6 +2,7 @@ package controller;
 
 import common.CourseDTO;
 import common.UserDTO;
+import model.Entity.Course;
 import model.Model;
 
 import java.util.ArrayList;
@@ -35,4 +36,7 @@ public class Controller {
         return model.getCourses();
     }
 
+    public CourseDTO getCourse(String name){
+        return model.getCourse(name);
+    }
 }
