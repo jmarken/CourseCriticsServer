@@ -126,4 +126,24 @@ public class Model{
             throw sue;
         }
     }
+
+    public void createReview(ReviewDTO reviewDTO) throws Error.SaveReviewException{
+        User user = dbo.getUser(reviewDTO.getUser());
+        if(user == null){
+            throw new Error.SaveReviewException(ErrorMessages.SAVE_REVIEW_FAILED.getErrorMessage());
+        }
+        Course course = dbo.getCourse(reviewDTO.getCourse());
+        Review review = new Review(course,
+                                    user,
+                                    reviewDTO.getQuality(),
+                                    reviewDTO.getRelevance(),
+                                    reviewDTO.getDifficulty(),
+                                    reviewDTO.getTeaching(),
+                                    reviewDTO.getComment());
+        try {
+            dbo.saveReview(review);
+        }catch (Error.SaveReviewException sre){
+            throw sre;
+        }
+    }
 }
