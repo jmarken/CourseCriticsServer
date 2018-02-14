@@ -4,6 +4,9 @@ import common.CourseDTO;
 import common.UserDTO;
 import model.Model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller {
     Model model = new Model();
 
@@ -28,5 +31,8 @@ public class Controller {
         }
     }
 
+    public List<CourseDTO> getCourses(){
+        return model.getCourses();
+    }
 
 }

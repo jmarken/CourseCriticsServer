@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.exception.ConstraintViolationException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static common.ErrorMessages.*;
@@ -22,8 +23,8 @@ public class Model{
         Model model = new Model();
 
 
-        //ExampleData ed = new ExampleData();
-        //ed.enterStuff();
+        ExampleData ed = new ExampleData();
+        ed.enterStuff();
 
     }
 
@@ -59,5 +60,14 @@ public class Model{
         }
     }
 
+    public List<CourseDTO> getCourses(){
+        List<CourseDTO> courseDTOList = new ArrayList<CourseDTO>();
+        for(Course c : dbo.getAllCourses()){
+            CourseDTO tempDTO = new CourseDTO(c.getName(),
+                                              c.getSchool().getName());
+            courseDTOList.add(tempDTO);
+        }
+        return courseDTOList;
+    }
 
 }
