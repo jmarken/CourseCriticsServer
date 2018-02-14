@@ -33,7 +33,7 @@ public class Users {
     @Path("/{username}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
     public List<ReviewDTO> getReviews(@PathParam("username") String username) {
-        return controller.getReviews(username);
+        return controller.getUserReviews(username);
     }
 
     @PUT
