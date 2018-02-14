@@ -1,30 +1,25 @@
 package model;
 
-import common.CourseDTO;
-import common.ErrorMessages;
-import common.UserDTO;
+import common.*;
 import model.Entity.*;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.exception.ConstraintViolationException;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static common.ErrorMessages.*;
 
 public class Model{
     private Factory factory = new Factory();
     private SessionFactory sessionFactory = factory.getFactory();
     DBOperations dbo = new DBOperations(factory, sessionFactory);
 
+
     //FOR TESTING
     public static void main(String[] args) {
         Model model = new Model();
 
 
-        ExampleData ed = new ExampleData();
-        ed.enterStuff();
+        //ExampleData ed = new ExampleData();
+        //ed.enterStuff();
 
     }
 
@@ -81,4 +76,42 @@ public class Model{
         }
     }
 
+    public List<ReviewDTO> getCourseReviews(String courseName){
+        List<ReviewDTO> reviewDTOList = new ArrayList<ReviewDTO>();
+        for(Review review : dbo.getCourseReviews(courseName)){
+            ReviewDTO reviewDTO = new ReviewDTO(review.getCourse().getName(),
+                                                review.getUser().getUsername(),
+                                                review.getQuality(),
+                                                review.getRelevance(),
+                                                review.getDifficulty(),
+                                                review.getTeaching(),
+                                                review.getComment());
+            reviewDTOList.add(reviewDTO);
+        }
+        return reviewDTOList;
+    }
+
+    public List<SchoolDTO> getSchools(){
+        List<SchoolDTO> schoolDTOList = new ArrayList<SchoolDTO>();
+        for(School school : dbo.getAllScools()){
+            SchoolDTO schoolDTO = new SchoolDTO(school.getName());
+            schoolDTOList.add(schoolDTO);
+        }
+        return schoolDTOList;
+    }
+
+    public List<ReviewDTO> getUsersReviews(String userName){
+        List<ReviewDTO> reviewDTOList = new ArrayList<ReviewDTO>();
+        for(Review review : dbo.getUsersReviews(userName)){
+            ReviewDTO reviewDTO = new ReviewDTO(review.getCourse().getName(),
+                                                review.getUser().getUsername(),
+                                                review.getQuality(),
+                                                review.getRelevance(),
+                                                review.getDifficulty(),
+                                                review.getTeaching(),
+                                                review.getComment());
+            reviewDTOList.add(reviewDTO);
+        }
+        return reviewDTOList;
+    }
 }
