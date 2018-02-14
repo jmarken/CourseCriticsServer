@@ -4,10 +4,12 @@ import common.*;
 import model.Entity.*;
 import org.hibernate.SessionFactory;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model{
+    @Inject
     private Factory factory = new Factory();
     private SessionFactory sessionFactory = factory.getFactory();
     DBOperations dbo = new DBOperations(factory, sessionFactory);

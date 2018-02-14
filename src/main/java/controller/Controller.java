@@ -6,10 +6,12 @@ import common.SchoolDTO;
 import common.UserDTO;
 import model.Model;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
+    @Inject
     Model model = new Model();
 
     public void createUser(UserDTO registerUser) throws Exception{
