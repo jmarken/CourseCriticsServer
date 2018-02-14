@@ -2,6 +2,7 @@ package view.entrypoints;
 
 import common.CourseDTO;
 import common.ReviewDTO;
+import common.ServerError;
 import controller.Controller;
 
 import javax.ws.rs.*;
@@ -17,7 +18,11 @@ public class Courses {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void createCourse(CourseDTO courseRequest) {
-        controller.createCourse(courseRequest);
+        try {
+            controller.createCourse(courseRequest);
+        } catch (Exception e) {
+            throw new ServerError(e.getMessage());
+        }
     }
 
     @GET

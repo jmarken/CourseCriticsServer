@@ -1,6 +1,7 @@
 package view.entrypoints;
 
 import common.ReviewDTO;
+import common.ServerError;
 import common.UserDTO;
 import controller.Controller;
 import view.rest.LoginResponse;
@@ -18,7 +19,11 @@ public class Users {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void createUser(UserDTO userRequest) {
-        controller.createUser(userRequest);
+        try {
+            controller.createUser(userRequest);
+        } catch (Exception e) {
+            throw new ServerError(e.getMessage());
+        }
     }
 
     @POST
@@ -33,7 +38,7 @@ public class Users {
     @Path("/{username}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
     public List<ReviewDTO> getReviews(@PathParam("username") String username) {
-        return controller.getUserReviews(username);
+        return controller.getUsersReviews(username);
     }
 
     @PUT
@@ -41,7 +46,10 @@ public class Users {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public void updateUser(@PathParam("username") String username, UserDTO userRequest) {
-        controller.updateUser(userRequest);
+        try {
+            controller.updateUser(userRequest);
+        } catch (Exception e) {
+            throw new ServerError(e.getMessage());
+        }
     }
-
 }
