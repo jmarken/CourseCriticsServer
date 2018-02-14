@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ReviewDTO {
     private String course;
+    private String school;
     private String user;
     private int quality;
     private int relevance;
@@ -12,11 +13,13 @@ public class ReviewDTO {
     private int teaching;
     private String comment;
 
+
     public ReviewDTO() {
     }
 
-    public ReviewDTO(String course, String user, int quality, int relevance, int difficulty, int teaching, String comment) {
+    public ReviewDTO(String course, String school, String user, int quality, int relevance, int difficulty, int teaching, String comment) {
         this.course = course;
+        this.school = school;
         this.user = user;
         this.quality = quality;
         this.relevance = relevance;
@@ -81,10 +84,19 @@ public class ReviewDTO {
         this.comment = comment;
     }
 
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
     @Override
     public String toString() {
         return "ReviewDTO{" +
                 "course='" + course + '\'' +
+                ", school='" + school + '\'' +
                 ", user='" + user + '\'' +
                 ", quality=" + quality +
                 ", relevance=" + relevance +

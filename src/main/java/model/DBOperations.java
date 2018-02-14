@@ -21,7 +21,7 @@ public class DBOperations {
         this.sessionFactory = factory;
     }
 
-    public void saveSchool(School school){
+    public void saveSchool(School school)throws Error.SaveSchoolException{
         try{
             if(getSchool(school.getName()) == null){
                 session = sessionFactory.getCurrentSession();
@@ -29,8 +29,8 @@ public class DBOperations {
                 session.save(school);
                 session.getTransaction().commit();
             }
-        } catch (Exception e){
-            e.printStackTrace();
+        } catch (javax.persistence.PersistenceException pe){
+            throw new Error.SaveSchoolException(ErrorMessages.SAVE_SCHOOL_FAILED.getErrorMessage());
         }
 
     }

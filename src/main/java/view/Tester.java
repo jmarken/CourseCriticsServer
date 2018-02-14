@@ -12,11 +12,7 @@ public class Tester {
 
 
         try{
-            ReviewDTO review = new ReviewDTO("ID1212 Computer Science",
-                    "frodo",
-                    1,2,3,4,
-                    "This is a comment!");
-            controller.createReview(review);
+            
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
