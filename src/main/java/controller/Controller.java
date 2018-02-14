@@ -1,8 +1,9 @@
 package controller;
 
 import common.CourseDTO;
+import common.ReviewDTO;
+import common.SchoolDTO;
 import common.UserDTO;
-import model.Entity.Course;
 import model.Model;
 
 import java.util.ArrayList;
@@ -38,5 +39,25 @@ public class Controller {
 
     public CourseDTO getCourse(String name){
         return model.getCourse(name);
+    }
+
+    public List<ReviewDTO> getCourseReviews(String courseName){
+        return model.getCourseReviews(courseName);
+    }
+
+    public List<SchoolDTO> getSchools(){
+        return model.getSchools();
+    }
+
+    public List<ReviewDTO> getUsersReviews(String userName){
+        return model.getUsersReviews(userName);
+    }
+
+    public void updateUser(UserDTO userDTO) throws Exception{
+        try{
+            model.updateUser(userDTO);
+        }catch (Exception e){
+            throw e;
+        }
     }
 }

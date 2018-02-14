@@ -11,8 +11,13 @@ public class Tester {
 
 
         try{
-            System.out.println(controller.getCourse("ET01 Movie Theories"));
-            System.out.println(controller.getCourse("Exist?"));
+            UserDTO userBefore = new UserDTO("gimli", "moria");
+            controller.createUser(userBefore);
+            System.out.println(controller.login(userBefore));
+            UserDTO userAfter = new UserDTO("gimli", "middleearth");
+            controller.updateUser(userAfter);
+            System.out.println(controller.login(userBefore));
+            System.out.println(controller.login(userAfter));
         }catch(Exception e){
             System.out.println(e.getMessage());
         }

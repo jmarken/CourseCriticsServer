@@ -1,6 +1,7 @@
 package model;
 
 import common.ErrorMessages;
+import common.ReviewDTO;
 import model.Entity.Course;
 import model.Entity.Review;
 import model.Entity.School;
@@ -116,6 +117,18 @@ public class DBOperations {
 
     }
 
+    public void updateUser(User user) throws Error.SaveUserException{
+        try{
+            session = sessionFactory.getCurrentSession();
+            session.beginTransaction();
+            session.update(user);
+            session.getTransaction().commit();
+        }catch (javax.persistence.PersistenceException cve){
+            throw new Error.SaveUserException(ErrorMessages.SAVE_USER_FAILED.getErrorMessage());
+        }
+
+    }
+
     public User getUser(String username){
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
@@ -149,10 +162,18 @@ public class DBOperations {
 
     }
 
-    public List<Review> getReviews(String coursename){
+    public List<Review> getCourseReviews(String coursename){
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List<Review> reviewList = session.createQuery("from Review r where r.course_name='" + coursename + "'").getResultList();
+        List<Review> reviewList = session.createQuery("from Review r where r.course='" + coursename + "'").getResultList();
+        session.getTransaction().commit();
+        return reviewList;
+    }
+
+    public List<Review> getUsersReviews(String username){
+        session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        List<Review> reviewList = session.createQuery("from Review r where r.user='" + username + "'").getResultList();
         session.getTransaction().commit();
         return reviewList;
     }
@@ -164,5 +185,4 @@ public class DBOperations {
         session.getTransaction().commit();
         return reviewList;
     }
-
 }
