@@ -1,8 +1,7 @@
 package view.entrypoints;
 
+import common.SchoolDTO;
 import controller.Controller;
-import view.rest.SchoolRest;
-import view.rest.ReviewRest;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,7 +14,7 @@ public class Schools {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<SchoolRest> getSchools() {
+    public List<SchoolDTO> getSchools() {
         return controller.getSchools();
     }
 

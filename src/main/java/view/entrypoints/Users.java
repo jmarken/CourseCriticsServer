@@ -1,9 +1,9 @@
 package view.entrypoints;
 
+import common.ReviewDTO;
+import common.UserDTO;
 import controller.Controller;
-import view.rest.CourseRest;
-import view.rest.ReviewRest;
-import view.rest.UserPrivateRest;
+import view.rest.LoginResponse;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -17,14 +17,22 @@ public class Users {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void createCourse(CourseRest courseRequest) {
-        controller.createUser(courseRequest);
+    public void createUser(UserDTO userRequest) {
+        controller.createUser(userRequest);
+    }
+
+    @POST
+    @Path("/login")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public LoginResponse login(UserDTO userRequest) {
+        return controller.login(userRequest) ? new LoginResponse(userRequest.getUsername(), "Login Success") : new LoginResponse(userRequest.getUsername(), "Login Failure");
     }
 
     @GET
     @Path("/{username}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<ReviewRest> getReviews(@PathParam("username") String username) {
+    public List<ReviewDTO> getReviews(@PathParam("username") String username) {
         return controller.getReviews(username);
     }
 
@@ -32,8 +40,8 @@ public class Users {
     @Path("/{username}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public void updateCourse(@PathParam("username") String username, UserPrivateRest userRequest) {
-        controller.updateUser(username, userRequest);
+    public void updateUser(@PathParam("username") String username, UserDTO userRequest) {
+        controller.updateUser(userRequest);
     }
 
 }
