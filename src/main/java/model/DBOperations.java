@@ -117,7 +117,7 @@ public class DBOperations {
 
     }
 
-    public void updatesaveUser(User user) throws Error.SaveUserException{
+    public void updateUser(User user) throws Error.SaveUserException{
         try{
             session = sessionFactory.getCurrentSession();
             session.beginTransaction();

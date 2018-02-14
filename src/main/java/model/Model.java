@@ -114,4 +114,14 @@ public class Model{
         }
         return reviewDTOList;
     }
+
+    public void updateUser(UserDTO userDTO) throws Error.SaveUserException{
+        User user = dbo.getUser(userDTO.getUsername());
+        user.setPassword(userDTO.getPassword());
+        try{
+            dbo.updateUser(user);
+        } catch (Error.SaveUserException sue){
+            throw sue;
+        }
+    }
 }

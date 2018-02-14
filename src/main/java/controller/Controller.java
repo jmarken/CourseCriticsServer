@@ -52,4 +52,12 @@ public class Controller {
     public List<ReviewDTO> getUsersReviews(String userName){
         return model.getUsersReviews(userName);
     }
+
+    public void updateUser(UserDTO userDTO) throws Exception{
+        try{
+            model.updateUser(userDTO);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

@@ -1,19 +1,11 @@
-package common;
+package view.rest;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class UserDTO {
+public class UserPrivateRest {
     private String username;
     private String password;
-
-    public UserDTO() {
-    }
-
-    public UserDTO(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
 
     public String getUsername() {
         return username;
@@ -29,13 +21,5 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    @Override
-    public String toString() {
-        return "UserDTO{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                '}';
     }
 }
