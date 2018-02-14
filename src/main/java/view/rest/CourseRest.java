@@ -1,16 +1,13 @@
-package common;
+package view.rest;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class CourseDTO {
+public class CourseRest {
     private String name;
     private String school;
 
-    public CourseDTO() {
-    }
-
-    public CourseDTO(String name, String school) {
+    public CourseRest(String name, String school) {
         this.name = name;
         this.school = school;
     }
@@ -29,13 +26,5 @@ public class CourseDTO {
 
     public void setSchool(String school) {
         this.school = school;
-    }
-
-    @Override
-    public String toString() {
-        return "CourseDTO{" +
-                "name='" + name + '\'' +
-                ", school='" + school + '\'' +
-                '}';
     }
 }

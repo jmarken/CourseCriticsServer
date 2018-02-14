@@ -1,9 +1,10 @@
-package common;
+package view.rest;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
-public class ReviewDTO {
+public class ReviewRest {
+
     private String course;
     private String user;
     private int quality;
@@ -11,19 +12,6 @@ public class ReviewDTO {
     private int difficulty;
     private int teaching;
     private String comment;
-
-    public ReviewDTO() {
-    }
-
-    public ReviewDTO(String course, String user, int quality, int relevance, int difficulty, int teaching, String comment) {
-        this.course = course;
-        this.user = user;
-        this.quality = quality;
-        this.relevance = relevance;
-        this.difficulty = difficulty;
-        this.teaching = teaching;
-        this.comment = comment;
-    }
 
     public String getCourse() {
         return course;
@@ -80,17 +68,5 @@ public class ReviewDTO {
     public void setComment(String comment) {
         this.comment = comment;
     }
-
-    @Override
-    public String toString() {
-        return "ReviewDTO{" +
-                "course='" + course + '\'' +
-                ", user='" + user + '\'' +
-                ", quality=" + quality +
-                ", relevance=" + relevance +
-                ", difficulty=" + difficulty +
-                ", teaching=" + teaching +
-                ", comment='" + comment + '\'' +
-                '}';
-    }
 }
+
