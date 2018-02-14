@@ -8,6 +8,8 @@ public class UserDTO {
     private String password;
 
     public UserDTO() {
+        this.username = "test";
+        this.password = "test";
     }
 
     public UserDTO(String username, String password) {
