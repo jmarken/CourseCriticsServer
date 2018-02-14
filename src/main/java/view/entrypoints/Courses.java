@@ -34,10 +34,10 @@ public class Courses {
     }
 
     @GET
-    @Path("/reviews")
+    @Path("/{name}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<ReviewDTO> getReviews() {
-        return controller.getReviews();
+    public List<ReviewDTO> getReviews(@PathParam("name") String name) {
+        return controller.getCourseReviews(name);
     }
 
 }
