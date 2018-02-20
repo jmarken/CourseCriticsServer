@@ -85,3 +85,171 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- INSERT EXAMPLE DATA
+
+-- SCHOOLS
+INSERT INTO school (name) VALUES ("Kungliga Tekniska Högskolan");
+INSERT INTO school (name) VALUES ("Lunds Universitet");
+INSERT INTO school (name) VALUES ("Linköpings Universitet");
+INSERT INTO school (name) VALUES ("Kungliga Konsthögskolan");
+INSERT INTO school (name) VALUES ("Karolinska Institutet");
+INSERT INTO school (name) VALUES ("Luleå Tekniska Universitet");
+INSERT INTO school (name) VALUES ("Mittuniversitetet");
+INSERT INTO school (name) VALUES ("Linnéuniversitetet");
+INSERT INTO school (name) VALUES ("Karlstads Universitet");
+INSERT INTO school (name) VALUES ("Uppsala Universitet");
+
+-- COURSES
+INSERT INTO course (name, school_name) VALUES ("ID1001 Network Engineering", "Kungliga Tekniska Högskolan");
+INSERT INTO course (name, school_name) VALUES ("IX1313 Algebra", "Kungliga Tekniska Högskolan");
+INSERT INTO course (name, school_name) VALUES ("ID1010 Database Management", "Kungliga Tekniska Högskolan");
+INSERT INTO course (name, school_name) VALUES ("ID9020 Programming I", "Kungliga Tekniska Högskolan");
+INSERT INTO course (name, school_name) VALUES ("LI2010 Physiology I", "Lunds Universitet");
+INSERT INTO course (name, school_name) VALUES ("LT1242 French, Basic Course", "Lunds Universitet");
+INSERT INTO course (name, school_name) VALUES ("CI1100 Chemistry: General Chemistry", "Linköpings Universitet");
+INSERT INTO course (name, school_name) VALUES ("LS1302 Discrete Mathematics", "Linköpings Universitet");
+INSERT INTO course (name, school_name) VALUES ("AB1020 Art History", "Kungliga Konsthögskolan");
+INSERT INTO course (name, school_name) VALUES ("II1085 Medicine History", "Karolinska Institutet");
+INSERT INTO course (name, school_name) VALUES ("LO6043 Medical Acupuncture", "Karolinska Institutet");
+INSERT INTO course (name, school_name) VALUES ("LT9021 Physics II", "Luleå Tekniska Universitet");
+INSERT INTO course (name, school_name) VALUES ("TR1503 Mathematical Analytics", "Luleå Tekniska Universitet");
+INSERT INTO course (name, school_name) VALUES ("YY7050 Economics I", "Mittuniversitetet");
+INSERT INTO course (name, school_name) VALUES ("BY1020 Evolutionary Theories", "Linnéuniversitetet");
+INSERT INTO course (name, school_name) VALUES ("LU7304 Science History", "Linnéuniversitetet");
+INSERT INTO course (name, school_name) VALUES ("PO1401 Teaching Ethics", "Karlstads Universitet");
+INSERT INTO course (name, school_name) VALUES ("KU7643 Roman History I", "Karlstads Universitet");
+INSERT INTO course (name, school_name) VALUES ("KI1213 Swedish History I", "Karlstads Universitet");
+INSERT INTO course (name, school_name) VALUES ("UI4040 Basic Biology", "Uppsala Universitet");
+INSERT INTO course (name, school_name) VALUES ("UI4020 Basic Chemistry", "Uppsala Universitet");
+
+-- USERS
+INSERT INTO user (username, password) VALUES ("bowie", "bowie");
+INSERT INTO user (username, password) VALUES ("jack27", "jack27");
+INSERT INTO user (username, password) VALUES ("john41", "john41");
+INSERT INTO user (username, password) VALUES ("ben42", "ben42");
+INSERT INTO user (username, password) VALUES ("lisa12", "lisa12");
+INSERT INTO user (username, password) VALUES ("amanda9", "amanda9");
+INSERT INTO user (username, password) VALUES ("daisy70", "daisy70");
+INSERT INTO user (username, password) VALUES ("nora5", "nora5");
+INSERT INTO user (username, password) VALUES ("bob1", "bob1");
+INSERT INTO user (username, password) VALUES ("lena3", "lena3");
+
+-- REVIEWS
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID1001 Network Engineering", "jack27", "2", "5", "3", "2", "Very relevant course, dissapointed with the teaching...");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID1001 Network Engineering", "john41", "4", "2", "1", "4", "Fun, challenging course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID1001 Network Engineering", "ben42", "4", "3", "2", "3", "Great course. I didn´t like the lectures.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("IX1313 Algebra", "jack27", "3", "1", "5", "4", "Very relevant course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("IX1313 Algebra", "lisa12", "2", "3", "2", "1", "I hated the course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("IX1313 Algebra", "amanda9", "4", "4", "4", "5", "I LOVED the course!!!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID1010 Database Management", "amanda9", "2", "5", "4", "3", "Very relevant and difficult course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID1010 Database Management", "daisy70", "3", "3", "5", "2", "Very difficult");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID1010 Database Management", "nora5", "3", "1", "2", "4", "Great teachers.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID9020 Programming I", "amanda9", "4", "3", "1", "2", "Very easy course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID9020 Programming I", "john41", "3", "5", "3", "4", "Good course. Worth taking!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("ID9020 Programming I", "jack27", "5", "4", "3", "2", "OK.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LI2010 Physiology I", "ben42", "4", "3", "3", "3", "I found the course interesting");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LI2010 Physiology I", "lisa12", "4", "2", "3", "5", "Not that relevant course. But the teaching was great!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LI2010 Physiology I", "daisy70", "5", "2", "4", "3", "Liked it.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LT1242 French, Basic Course", "ben42", "5", "3", "2", "4", "Great teachers!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LT1242 French, Basic Course", "amanda9", "4", "3", "5", "3", "Good course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LT1242 French, Basic Course", "john41", "3", "3", "3", "5", "Uninteresting course. Awesome teaching.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("CI1100 Chemistry: General Chemistry", "jack27", "5", "5", "5", "5", "5+++");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("CI1100 Chemistry: General Chemistry", "lisa12", "3", "4", "2", "4", "Do it!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("CI1100 Chemistry: General Chemistry", "daisy70", "3", "4", "4", "3", "Difficult.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LS1302 Discrete Mathematics", "daisy70", "4", "3", "1", "3", "Easy!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LS1302 Discrete Mathematics", "bob1", "3", "5", "4", "3", "VERY relevant!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LS1302 Discrete Mathematics", "nora5", "5", "4", "3", "5", "This was great! A PERFECT course!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LS1302 Discrete Mathematics", "lisa12", "3", "4", "2", "3", "Not good. Not bad. meh.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("AB1020 Art History", "john41", "4", "3", "4", "3", "Worth doing.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("AB1020 Art History", "jack27", "4", "3", "1", "3", "Very easy course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("II1085 Medicine History", "ben42", "4", "3", "2", "3", "Not too difficult.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("II1085 Medicine History", "daisy70", "1", "1", "3", "2", "Not worth doing.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LO6043 Medical Acupuncture", "bob1", "4", "3", "4", "3", "Very interesting.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LO6043 Medical Acupuncture", "nora5", "4", "5", "3", "2", "Fascinating theories.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LO6043 Medical Acupuncture", "amanda9", "5", "4", "3", "4", "GREAT!!!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LT9021 Physics II", "jack27", "2", "2", "5", "3", "Don´t do it if you don´t have to!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LT9021 Physics II", "john41", "3", "2", "4", "3", "Tough course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("TR1503 Mathematical Analytics", "daisy70", "2", "1", "5", "1", "I HATE math. I failed this. Twice.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("TR1503 Mathematical Analytics", "bob1", "3", "2", "4", "2", "Not that relevant.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("YY7050 Economics I", "ben42", "4", "4", "3", "5", "Great teaching and great course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("YY7050 Economics I", "nora5", "5", "5", "2", "5", "Awesome!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("BY1020 Evolutionary Theories", "jack27", "4", "3", "2", "3", "Not that difficult. Very interesting.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("BY1020 Evolutionary Theories", "bob1", "3", "4", "2", "4", "This was good! Had alot of interesting discussions.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("BY1020 Evolutionary Theories", "john41", "4", "5", "2", "3", "Loved it.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LU7304 Science History", "nora5", "2", "1", "4", "3", "This was just boring.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("LU7304 Science History", "amanda9", "3", "2", "3", "2", "Skip it if you can.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("PO1401 Teaching Ethics", "ben42", "4", "3", "2", "4", "Liked it! Can recommend.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("PO1401 Teaching Ethics", "jack27", "4", "2", "4", "4", "Not that relevant.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("PO1401 Teaching Ethics", "nora5", "5", "3", "4", "2", "Good course. Not relevant though.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("KU7643 Roman History I", "lena3", "4", "3", "5", "2", "I found it very difficult.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("KU7643 Roman History I", "bob1", "5", "5", "3", "5", "I really liked it.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("KU7643 Roman History I", "nora5", "4", "4", "3", "4", "Great course if you´re into history.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("KI1213 Swedish History I", "amanda9", "4", "5", "3", "4", "Lots of kings and wars. Interesting!");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("KI1213 Swedish History I", "john41", "3", "2", "3", "3", "Not my thing.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("KI1213 Swedish History I", "jack27", "5", "3", "4", "4", "Good course.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("UI4040 Basic Biology", "amanda9", "4", "3", "5", "3", "Very difficult, but felt relevant and interesting.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("UI4040 Basic Biology", "ben42", "4", "2", "4", "3", "I don´t think it was very relevant.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("UI4040 Basic Biology", "nora5", "4", "3", "2", "1", "I didn´t like the teaching.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("UI4020 Basic Chemistry", "amanda9", "2", "4", "3", "2", "OK.");
+INSERT INTO review (course_name, user_username, quality, relevance, difficulty, teaching, comment) 
+VALUES ("UI4020 Basic Chemistry", "nora5", "3", "4", "3", "3", "It was worth doing.");
+
