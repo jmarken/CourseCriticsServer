@@ -11,6 +11,7 @@ import { ReviewComponent } from './review/review.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './review/review.service';
+import { RegisteruserComponent } from './registeruser/registeruser.component';
 
 
 
@@ -20,7 +21,8 @@ import { ReviewService } from './review/review.service';
     HeaderComponent,
     CoursesComponent,
     ReviewComponent,
-    HomeComponent
+    HomeComponent,
+    RegisteruserComponent
   ],
   imports: [
     BrowserModule,
