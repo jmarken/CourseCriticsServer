@@ -1,0 +1,20 @@
+.score{
+    text-align: left;
+}
+
+.coursename{
+    font-weight: bold;
+}
+
+.courseschool{
+    text-align: left;
+    font-size: 0.90em;
+}
+
+.panel-body{
+   padding: 1%;
+}
+
+.input-group{
+    margin-bottom: 15px;
+}

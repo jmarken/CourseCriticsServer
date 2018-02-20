@@ -16,17 +16,24 @@
             <div class="panel panel-default" *ngFor="let course of courses | filter : searchText; let i = index" >
               <div class="panel-heading" role="tab" id="headingOne">
                 <h4 class="panel-title">
-                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{i}}" aria-expanded="false" aria-controls="collapse[i]">
-                    {{course.name}} {{i}}
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="" href="#collapse{{i}}" aria-expanded="false" aria-controls="collapse[i]">
+                    <div class="row">
+                      <div class="col-xs-12 coursename">
+                        {{course.name}}
+                      </div> 
+                      <div class="col-xs-12 courseschool">
+                        {{course.school}}
+                      </div>
+                    </div>
                   </a>
                 </h4>
               </div>
               <div id="collapse{{i}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading[i]">
                 <div class="panel-body">
-                  <div class="col-xs-4">Quality:</div><div class="col-xs-8">{{course.avgQuality}}</div>
-                  <div class="col-xs-4">Relevance:</div><div class="col-xs-8">{{course.avgRelevance}}</div>
-                  <div class="col-xs-4">Difficulty:</div><div class="col-xs-8">{{course.avgDifficulty}}</div>
-                  <div class="col-xs-4">Teaching:</div><div class="col-xs-8">{{course.avgTeaching}}</div>
+                  <div class="col-xs-6">Quality: {{course.avgQuality}}/5</div>
+                  <div class="col-xs-6">Relevance: {{course.avgRelevance}}/5</div>
+                  <div class="col-xs-6">Difficulty: {{course.avgDifficulty}}/5</div>
+                  <div class="col-xs-6">Teaching: {{course.avgTeaching}}/5</div>
                   <div class="col-xs-12"><a href="#">See more</a></div>
                   
                 </div>
