@@ -11,7 +11,10 @@ import { ReviewComponent } from './review/review.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReviewService } from './review/review.service';
-import { RegisteruserComponent } from './registeruser/registeruser.component';
+import { UserComponent } from './user/user.component';
+import {RegisteruserComponent} from './registeruser/registeruser.component'
+import { UserService } from './user/user.service';
+
 
 
 
@@ -22,6 +25,7 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     CoursesComponent,
     ReviewComponent,
     HomeComponent,
+    UserComponent,
     RegisteruserComponent
   ],
   imports: [
@@ -30,7 +34,8 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
     FormsModule,
     HttpModule
   ],
-  providers: [ReviewService],
+  providers: [ReviewService,
+  UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

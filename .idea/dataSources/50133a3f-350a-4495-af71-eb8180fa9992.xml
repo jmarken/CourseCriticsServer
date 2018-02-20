@@ -1,121 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="coursecritics@localhost">
-  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
     <root id="1"/>
     <schema id="2" parent="1" name="coursecritics">
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
-    <schema id="3" parent="1" name="currconvdb"/>
+    <schema id="3" parent="1" name="hb_student_tracker"/>
     <schema id="4" parent="1" name="information_schema"/>
     <schema id="5" parent="1" name="mysql"/>
-    <schema id="6" parent="1" name="olddb"/>
-    <schema id="7" parent="1" name="performance_schema"/>
-    <schema id="8" parent="1" name="superrecruiter"/>
+    <schema id="6" parent="1" name="performance_schema"/>
+    <schema id="7" parent="1" name="photo_app"/>
+    <schema id="8" parent="1" name="sakila"/>
     <schema id="9" parent="1" name="sys"/>
-    <table id="10" parent="2" name="course"/>
-    <table id="11" parent="2" name="review"/>
-    <table id="12" parent="2" name="school"/>
-    <table id="13" parent="2" name="user"/>
-    <column id="14" parent="10" name="name">
+    <schema id="10" parent="1" name="web_customer_tracker"/>
+    <schema id="11" parent="1" name="world"/>
+    <table id="12" parent="2" name="course"/>
+    <table id="13" parent="2" name="review"/>
+    <table id="14" parent="2" name="school"/>
+    <table id="15" parent="2" name="user"/>
+    <column id="16" parent="12" name="name">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="10" name="school_name">
+    <column id="17" parent="12" name="school_name">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="16" parent="10" name="fk_course_school_idx">
+    <index id="18" parent="12" name="fk_course_school_idx">
       <ColNames>school_name</ColNames>
     </index>
-    <key id="17" parent="10" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <key id="19" parent="12" name="PRIMARY">
       <ColNames>name</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="18" parent="10" name="fk_course_school">
+    <foreign-key id="20" parent="12" name="fk_course_school">
       <ColNames>school_name</ColNames>
       <RefSchemaName>coursecritics</RefSchemaName>
       <RefTableName>school</RefTableName>
       <RefColNames>name</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="19" parent="11" name="course_name">
+    <column id="21" parent="13" name="course_name">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="20" parent="11" name="user_username">
+    <column id="22" parent="13" name="user_username">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="21" parent="11" name="quality">
+    <column id="23" parent="13" name="quality">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="22" parent="11" name="relevance">
+    <column id="24" parent="13" name="relevance">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="23" parent="11" name="difficulty">
+    <column id="25" parent="13" name="difficulty">
       <Position>5</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="24" parent="11" name="teaching">
+    <column id="26" parent="13" name="teaching">
       <Position>6</Position>
       <DataType>int(11)|0</DataType>
     </column>
-    <column id="25" parent="11" name="comment">
+    <column id="27" parent="13" name="comment">
       <Position>7</Position>
       <DataType>varchar(500)|0</DataType>
     </column>
-    <index id="26" parent="11" name="fk_review_course1_idx">
+    <index id="28" parent="13" name="fk_review_course1_idx">
       <ColNames>course_name</ColNames>
     </index>
-    <index id="27" parent="11" name="fk_review_user1_idx">
+    <index id="29" parent="13" name="fk_review_user1_idx">
       <ColNames>user_username</ColNames>
     </index>
-    <key id="28" parent="11" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <key id="30" parent="13" name="PRIMARY">
       <ColNames>user_username
 course_name</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="29" parent="11" name="fk_review_course1">
+    <foreign-key id="31" parent="13" name="fk_review_course1">
       <ColNames>course_name</ColNames>
       <RefSchemaName>coursecritics</RefSchemaName>
       <RefTableName>course</RefTableName>
       <RefColNames>name</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <foreign-key id="30" parent="11" name="fk_review_user1">
+    <foreign-key id="32" parent="13" name="fk_review_user1">
       <ColNames>user_username</ColNames>
       <RefSchemaName>coursecritics</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>username</RefColNames>
+      <OnUpdate>no-action</OnUpdate>
+      <OnDelete>no-action</OnDelete>
     </foreign-key>
-    <column id="31" parent="12" name="name">
+    <column id="33" parent="14" name="name">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="32" parent="12" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <key id="34" parent="14" name="PRIMARY">
       <ColNames>name</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="33" parent="13" name="username">
+    <column id="35" parent="15" name="username">
       <Position>1</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="34" parent="13" name="password">
+    <column id="36" parent="15" name="password">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="35" parent="13" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
+    <key id="37" parent="15" name="PRIMARY">
       <ColNames>username</ColNames>
       <Primary>1</Primary>
     </key>
