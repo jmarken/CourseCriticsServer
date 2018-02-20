@@ -14,6 +14,8 @@ import { ReviewService } from './review/review.service';
 import { UserComponent } from './user/user.component';
 import {RegisteruserComponent} from './registeruser/registeruser.component'
 import { UserService } from './user/user.service';
+import { CoursesService } from './courses/courses.service';
+import { FilterPipe } from './courses/filter.pipe';
 
 
 
@@ -26,7 +28,8 @@ import { UserService } from './user/user.service';
     ReviewComponent,
     HomeComponent,
     UserComponent,
-    RegisteruserComponent
+    RegisteruserComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { UserService } from './user/user.service';
     HttpModule
   ],
   providers: [ReviewService,
-  UserService],
+  UserService, CoursesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
