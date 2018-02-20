@@ -1,4 +1,3 @@
-
 <div id="review-cont" class="container">
   <form (ngSubmit)="onSubmitReview(f)" #f="ngForm">
     <h1 class="col-xs-12">Course info:</h1>
@@ -33,12 +32,12 @@
     <label for="optional-radio1">Is the course optional?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" name="opt-radio1" id="opt-radio1">
+        <input class="form-check-input" type="radio" id="opt-radio1" name="opt-radio">
       </span>
       <span class="input-group-addon radio-right-text" id="optional-radio1-text">Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" name="opt-radio2" id="opt-radio2">
+        <input class="form-check-input" type="radio" id="opt-radio2" name="opt-radio">
       </span>
       <span class="input-group-addon" id="optional-radio2-text">No.</span>
     </div>
@@ -50,12 +49,12 @@
     <label for="lecture-check">Did you feel a need to attend the lectures?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="lecture-radio1" name="lecture-radio1">
+        <input class="form-check-input" type="radio" id="lecture-radio1" name="lecture-radio">
       </span>
       <span class="input-group-addon radio-right-text" id="lecture-radio1-text">Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="lecture-radio2" name="lecture-radio2">
+        <input class="form-check-input" type="radio" id="lecture-radio2" name="lecture-radio">
       </span>
       <span class="input-group-addon" id="lecture-radio2-text">No.</span>
     </div>
@@ -64,12 +63,12 @@
     <label for="book-check">Do you feel that the book is required?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="book-radio1" name="book-radio1">
+        <input class="form-check-input" type="radio" id="book-radio1" name="book-radio">
       </span>
       <span class="input-group-addon radio-right-text" id="book-radio-text">Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="book-radio2" name="book-radio2">
+        <input class="form-check-input" type="radio" id="book-radio2" name="book-radio">
       </span>
       <span class="input-group-addon" id="book-radio-text">No.</span>
     </div>
@@ -78,12 +77,12 @@
     <label for="group-work-check">Was there a lot of group work?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="group-work-radio1" name="group-work-radio1">
+        <input class="form-check-input" type="radio" id="group-work-radio1" name="group-work-radio">
       </span>
       <span class="input-group-addon radio-right-text" id="group-work-check-text">Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="group-work-radio2" name="group-work-radio2">
+        <input class="form-check-input" type="radio" id="group-work-radio2" name="group-work-radio">
       </span>
       <span class="input-group-addon" id="group-work-radio-text">No.</span>
     </div>
@@ -101,10 +100,38 @@
     <h1 class="col-xs-12">Scoring:</h1>
 
 
-    <div class="col-xs-4 rating-prefix">Quality:</div><div class="col-xs-8" include-html="components/rate.html"></div>
-    <div class="col-xs-4 rating-prefix">Relevance:</div><div class="col-xs-8" include-html="components/rate.html"></div>
-    <div class="col-xs-4 rating-prefix">Difficulty:</div><div class="col-xs-8" include-html="components/rate.html"></div>
-    <div class="col-xs-4 rating-prefix">Teaching:</div><div class="col-xs-8" include-html="components/rate.html"></div>
+    <div class="col-xs-4 rating-prefix">Quality:</div>
+      <fieldset class="rating col-xs-8">
+          <input type="radio" id="qstar5" name="quality-rating" value="5" /><label class = "full" for="qstar5" title="Awesome - 5 stars"></label>
+          <input type="radio" id="qstar4" name="quality-rating" value="4" /><label class = "full" for="qstar4" title="Pretty good - 4 stars"></label>
+          <input type="radio" id="qstar3" name="quality-rating" value="3" /><label class = "full" for="qstar3" title="Meh - 3 stars"></label>
+          <input type="radio" id="qstar2" name="quality-rating" value="2" /><label class = "full" for="qstar2" title="Kinda bad - 2 stars"></label>
+          <input type="radio" id="qstar1" name="quality-rating" value="1" /><label class = "full" for="qstar1" title="Sucks big time - 1 star"></label>
+      </fieldset>
+    <div class="col-xs-4 rating-prefix">Relevance:</div>
+    <fieldset class="rating col-xs-8">
+        <input type="radio" id="rstar5" name="relevance-rating" value="5" /><label class = "full" for="rstar5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="rstar4" name="relevance-rating" value="4" /><label class = "full" for="rstar4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="rstar3" name="relevance-rating" value="3" /><label class = "full" for="rstar3" title="Meh - 3 stars"></label>
+        <input type="radio" id="rstar2" name="relevance-rating" value="2" /><label class = "full" for="rstar2" title="Kinda bad - 2 stars"></label>
+        <input type="radio" id="rstar1" name="relevance-rating" value="1" /><label class = "full" for="rstar1" title="Sucks big time - 1 star"></label>
+    </fieldset>
+    <div class="col-xs-4 rating-prefix">Difficulty:</div>
+    <fieldset class="rating col-xs-8">
+        <input type="radio" id="dstar5" name="difficulty-rating" value="5" /><label class = "full" for="dstar5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="dstar4" name="difficulty-rating" value="4" /><label class = "full" for="dstar4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="dstar3" name="difficulty-rating" value="3" /><label class = "full" for="dstar3" title="Meh - 3 stars"></label>
+        <input type="radio" id="dstar2" name="difficulty-rating" value="2" /><label class = "full" for="dstar2" title="Kinda bad - 2 stars"></label>
+        <input type="radio" id="dstar1" name="difficulty-rating" value="1" /><label class = "full" for="dstar1" title="Sucks big time - 1 star"></label>
+    </fieldset>
+    <div class="col-xs-4 rating-prefix">Teaching:</div>
+    <fieldset class="rating col-xs-8">
+        <input type="radio" id="tstar5" name="teaching-rating" value="5" /><label class = "full" for="tstar5" title="Awesome - 5 stars"></label>
+        <input type="radio" id="tstar4" name="teaching-rating" value="4" /><label class = "full" for="tstar4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="tstar3" name="teaching-rating" value="3" /><label class = "full" for="tstar3" title="Meh - 3 stars"></label>
+        <input type="radio" id="tstar2" name="teaching-rating" value="2" /><label class = "full" for="tstar2" title="Kinda bad - 2 stars"></label>
+        <input type="radio" id="tstar1" name="teaching-rating" value="1" /><label class = "full" for="tstar1" title="Sucks big time - 1 star"></label>
+    </fieldset>
     
     
     <h1 class="col-xs-12">Comment:</h1>
