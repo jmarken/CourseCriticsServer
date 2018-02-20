@@ -1,0 +1,28 @@
+#search-box {
+	padding-bottom: 20px;
+}
+
+#brand-title {
+	margin-top: 30%;
+	font-size: 16vw;
+	text-align: center;
+	font-family: Pacifico;
+}
+
+@media screen and (min-width: 1024px) {
+	#brand-title {
+		margin-top: 15%;
+		font-size: 10vw;
+		text-align: center;
+		font-family: Pacifico;
+	}
+}
+
+@media screen and (orientation: landscape) {
+	#brand-title {
+		margin-top: 7%;
+		font-size: 10vw;
+		text-align: center;
+		font-family: Pacifico;
+	}
+}
