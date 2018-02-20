@@ -1,6 +1,23 @@
 .checkbox-qa {
 	padding-top: 0.5em;
-	padding-left: 5px;
+    padding-left: 5px;
+    max-width: 150px;
+}
+
+.form-check {
+    margin: 5px 0 20px 0;
+}
+
+.radio-right-text {
+    border-left-color: transparent;
+} 
+
+.radio-left-text {
+    border-right-color: transparent;
+} 
+
+#course-pre-box {
+    min-width: 83px;
 }
 
 #hours-box {
@@ -11,7 +28,7 @@
 	margin-top: 5px;
 	margin-left: 40%;
 	width: 20%;
-	margin-bottom: 10%;
+    margin-bottom: 10%;
 }
 
 .rating { 

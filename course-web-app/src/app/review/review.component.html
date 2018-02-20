@@ -2,75 +2,114 @@
 <div id="review-cont" class="container">
   <form (ngSubmit)="onSubmitReview(f)" #f="ngForm">
     <h1 class="col-xs-12">Course info:</h1>
-    <div class="row">
-      <div class="col-lg-6">
-        <div class="input-group">
-            <span class="input-group-addon" id="basic-addon3">Course:</span>
-            <input type="text" placeholder="XX0000" class="form-control" name="coursename" ngModel required>
-            <div class="input-group-btn bs-dropdown-to-select-group">
-                <button type="button" class="btn btn-default dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown">
-                    <span data-bind="bs-drp-sel-label">HT17</span>
-                    <input type="hidden" name="selected_value" data-bind="bs-drp-sel-value" value="" name="semester" ngModel>
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu" role="menu">
-                    <li data-value="1"><a>HT17</a></li>
-                    <li data-value="2"><a>VT18</a></li>
-                    <li data-value="3"><a>HT18</a></li>
-                </ul>
-            </div>
-        </div>
+
+  
+    <div class="input-group">
+      <span class="input-group-addon" id="course-pre-box">Course:</span>
+      <input type="text" placeholder="XX0000" class="form-control" name="coursename" ngModel required>
+      <div class="input-group-btn bs-dropdown-to-select-group">
+        <button type="button" class="btn btn-default dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown">
+          <span data-bind="bs-drp-sel-label">HT17</span>
+          <input type="hidden" name="selected_value" data-bind="bs-drp-sel-value" value="" name="semester" ngModel>
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li data-value="1"><a>HT17</a></li>
+          <li data-value="2"><a>VT18</a></li>
+          <li data-value="3"><a>HT18</a></li>
+        </ul>
       </div>
     </div>
-    <div class="input-group">
+
+
+    <div class="form-check">
+      <div class="input-group">
         <span class="input-group-addon" id="basic-addon3">Program:</span>
-      <input type="text" placeholder="XXXXX" class="form-control" name="program" ngModel required>
+        <input type="text" placeholder="XXXXX" class="form-control" name="program" ngModel required>
+      </div>
     </div>
+
     <label for="optional-radio1">Is the course optional?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-          <input class="form-check-input" type="radio" name="optradio" id="optional-radio1">
+        <input class="form-check-input" type="radio" name="opt-radio1" id="opt-radio1">
       </span>
-      <span class="input-group-addon" id="optional-radio1-text">Yes.</span>
-      <span class="input-group-addon">
-          <input class="form-check-input" type="radio" name="optradio" id="optional-radio2">
+      <span class="input-group-addon radio-right-text" id="optional-radio1-text">Yes.</span>
+
+      <span class="input-group-addon radio-left-text">
+        <input class="form-check-input" type="radio" name="opt-radio2" id="opt-radio2">
       </span>
       <span class="input-group-addon" id="optional-radio2-text">No.</span>
     </div>
+  
+
     <h1 class="col-xs-12">Your thoughts:</h1>
+
+
     <label for="lecture-check">Did you feel a need to attend the lectures?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-          <input class="form-check-input" type="checkbox" value="" id="lecture-check" name="lectures" ngModel>
+        <input class="form-check-input" type="radio" id="lecture-radio1" name="lecture-radio1">
       </span>
-      <span class="input-group-addon" id="lecture-check-text">Yes, I think so.</span>
+      <span class="input-group-addon radio-right-text" id="lecture-radio1-text">Yes.</span>
+
+      <span class="input-group-addon radio-left-text">
+        <input class="form-check-input" type="radio" id="lecture-radio2" name="lecture-radio2">
+      </span>
+      <span class="input-group-addon" id="lecture-radio2-text">No.</span>
     </div>
-    <label for="book-check">Is the book required?:</label>
+
+
+    <label for="book-check">Do you feel that the book is required?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="checkbox" value="" id="book-check" name="book" ngModel>
+        <input class="form-check-input" type="radio" id="book-radio1" name="book-radio1">
       </span>
-      <span class="input-group-addon" id="book-check-text">Yes, I think it is.</span>
+      <span class="input-group-addon radio-right-text" id="book-radio-text">Yes.</span>
+
+      <span class="input-group-addon radio-left-text">
+        <input class="form-check-input" type="radio" id="book-radio2" name="book-radio2">
+      </span>
+      <span class="input-group-addon" id="book-radio-text">No.</span>
     </div>
-    <label for="group-work-check">Is there a lot of group work?:</label>
+
+
+    <label for="group-work-check">Was there a lot of group work?:</label>
     <div class="form-check checkbox-qa">
-      <input class="form-check-input" type="checkbox" value="" id="group-work-check" name="group" ngModel>
-      <label class="form-check-label" for="group-work-check">
-        &nbsp;Yes, there is.
-      </label>
+      <span class="input-group-addon">
+        <input class="form-check-input" type="radio" id="group-work-radio1" name="group-work-radio1">
+      </span>
+      <span class="input-group-addon radio-right-text" id="group-work-check-text">Yes.</span>
+
+      <span class="input-group-addon radio-left-text">
+        <input class="form-check-input" type="radio" id="group-work-radio2" name="group-work-radio2">
+      </span>
+      <span class="input-group-addon" id="group-work-radio-text">No.</span>
     </div>
+
+
     <label for="hours-input">How much time did you spend, weekly?:</label>
-    <div id="hours-box" class="input-group">
-      <input class="form-control form-control-sm" id="hours-input" type="text" name="hours" ngModel>
-      <span class="input-group-addon">Hours</span>
+    <div class="form-check">
+      <div id="hours-box" class="input-group">
+        <input class="form-control form-control-sm" id="hours-input" type="text" name="hours" ngModel>
+        <span class="input-group-addon">Hours</span>
+      </div>
     </div>
+
+
     <h1 class="col-xs-12">Scoring:</h1>
+
+
     <div class="col-xs-4 rating-prefix">Quality:</div><div class="col-xs-8" include-html="components/rate.html"></div>
     <div class="col-xs-4 rating-prefix">Relevance:</div><div class="col-xs-8" include-html="components/rate.html"></div>
     <div class="col-xs-4 rating-prefix">Difficulty:</div><div class="col-xs-8" include-html="components/rate.html"></div>
     <div class="col-xs-4 rating-prefix">Teaching:</div><div class="col-xs-8" include-html="components/rate.html"></div>
+    
+    
     <h1 class="col-xs-12">Comment:</h1>
+
+
     <textarea class="form-control" rows="5" placeholder="Something you want to add?..."></textarea>
     <button id="submit-review" class="btn btn-default" [disabled]="!f.valid">Submit</button>
   
