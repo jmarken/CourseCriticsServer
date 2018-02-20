@@ -6,6 +6,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class CourseDTO {
     private String name;
     private String school;
+    private double avgQuality;
+    private double avgRelevance;
+    private double avgDifficulty;
+    private double avgTeaching;
 
     public CourseDTO() {
     }
@@ -13,6 +17,15 @@ public class CourseDTO {
     public CourseDTO(String name, String school) {
         this.name = name;
         this.school = school;
+    }
+
+    public CourseDTO(String name, String school, double avgQuality, double avgRelevance, double avgDifficulty, double avgTeaching) {
+        this.name = name;
+        this.school = school;
+        this.avgQuality = avgQuality;
+        this.avgRelevance = avgRelevance;
+        this.avgDifficulty = avgDifficulty;
+        this.avgTeaching = avgTeaching;
     }
 
     public String getName() {
@@ -31,11 +44,47 @@ public class CourseDTO {
         this.school = school;
     }
 
+    public double getAvgQuality() {
+        return avgQuality;
+    }
+
+    public void setAvgQuality(double avgQuality) {
+        this.avgQuality = avgQuality;
+    }
+
+    public double getAvgRelevance() {
+        return avgRelevance;
+    }
+
+    public void setAvgRelevance(double avgRelevance) {
+        this.avgRelevance = avgRelevance;
+    }
+
+    public double getAvgDifficulty() {
+        return avgDifficulty;
+    }
+
+    public void setAvgDifficulty(double avgDifficulty) {
+        this.avgDifficulty = avgDifficulty;
+    }
+
+    public double getAvgTeaching() {
+        return avgTeaching;
+    }
+
+    public void setAvgTeaching(double avgTeaching) {
+        this.avgTeaching = avgTeaching;
+    }
+
     @Override
     public String toString() {
         return "CourseDTO{" +
                 "name='" + name + '\'' +
                 ", school='" + school + '\'' +
+                ", avgQuality=" + avgQuality +
+                ", avgRelevance=" + avgRelevance +
+                ", avgDifficulty=" + avgDifficulty +
+                ", avgTeaching=" + avgTeaching +
                 '}';
     }
 }

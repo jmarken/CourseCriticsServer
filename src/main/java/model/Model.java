@@ -65,11 +65,38 @@ public class Model{
     public List<CourseDTO> getCourses(){
         List<CourseDTO> courseDTOList = new ArrayList<CourseDTO>();
         for(Course c : dbo.getAllCourses()){
+            int additions = 0;
+            double avgQ = 0;
+            double avgR = 0;
+            double avgD = 0;
+            double avgT = 0;
+            for(Review r : c.getReviews()){
+                avgQ = avgQ + r.getQuality();
+                avgR = avgR + r.getRelevance();
+                avgD = avgD + r.getDifficulty();
+                avgT = avgT + r.getTeaching();
+                additions++;
+            }
+            avgQ = avgQ/additions;
+            avgR = avgR/additions;
+            avgD = avgD/additions;
+            avgT = avgT/additions;
+
             CourseDTO tempDTO = new CourseDTO(c.getName(),
-                                              c.getSchool().getName());
+                                              c.getSchool().getName(),
+                                                roundToOneDecimal(avgQ, 1),
+                                                roundToOneDecimal(avgR, 1),
+                                                roundToOneDecimal(avgD, 1),
+                                                roundToOneDecimal(avgT, 1)
+                    );
             courseDTOList.add(tempDTO);
         }
         return courseDTOList;
+    }
+
+    private static double roundToOneDecimal(double value, int precision) {
+        int scale = (int) Math.pow(10, precision);
+        return (double) Math.round(value * scale) / scale;
     }
 
     public CourseDTO getCourse(String name){

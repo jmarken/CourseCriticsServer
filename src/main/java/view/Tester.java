@@ -12,7 +12,9 @@ public class Tester {
 
 
         try{
-            
+            System.out.println(controller.getCourses());
+
+
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
