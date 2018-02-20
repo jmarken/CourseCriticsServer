@@ -1,0 +1,25 @@
+.input-group {
+    margin-bottom: 3%;
+    margin-left: 18px;
+    width: 100%
+}
+
+.input-group-addon {
+    max-width: 40px;
+}
+
+.form {
+    font-family: 'Acme', sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#password-prefix, #conf-password-prefix {
+    font-size: 0.8em;
+    padding-left: 7px;
+}
