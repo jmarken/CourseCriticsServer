@@ -25,7 +25,6 @@ export class CoursepageComponent implements OnInit {
     .subscribe(
       (params: Params) =>{
       this.id = params['id'] ;
-      console.log(this.id);
       this.courseService.getCourse(this.id)
     .subscribe(
       (course: any[]) => this.course = course,
