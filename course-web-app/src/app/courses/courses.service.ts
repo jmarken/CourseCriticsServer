@@ -7,6 +7,7 @@ import { OnInit } from '@angular/core/src/metadata/lifecycle_hooks';
 @Injectable()
 export class CoursesService {
     courses = [];
+    data = [];
     constructor(private http: Http) {
     }
     
@@ -37,8 +38,8 @@ export class CoursesService {
         return this.http.get('http://localhost:8080/api/courses/' + name + "/reviews")
         .map(
             (response: Response)=> {
-                const data = response.json();
-                return data;
+               this.data = response.json();
+                return this.data;
             }
         );
       }

@@ -42,6 +42,18 @@
           <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.core:2.6.0" />
           <element id="library" level="project" name="Maven: org.eclipse.persistence:org.eclipse.persistence.asm:2.6.0" />
           <element id="library" level="project" name="Maven: org.glassfish:javax.json:1.0.4" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-catalina:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-servlet-api:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jsp-api:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-el-api:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-annotations-api:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-api:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jni:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-coyote:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util-scan:9.0.5" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jaspic-api:9.0.5" />
         </element>
       </element>
       <element id="directory" name="META-INF">
