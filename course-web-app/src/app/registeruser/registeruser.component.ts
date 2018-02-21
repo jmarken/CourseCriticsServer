@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { NgModel } from '@angular/forms/src/directives/ng_model';
 import { Response } from '@angular/http'
+import { Router } from '@angular/router';
 import { AuthorizationService } from './authorization.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { AuthorizationService } from './authorization.service';
 })
 export class RegisteruserComponent implements OnInit {
 
-  constructor(private authorizationService: AuthorizationService) { }
+  constructor(private authorizationService: AuthorizationService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -27,6 +28,7 @@ export class RegisteruserComponent implements OnInit {
 
     (error) => console.log(error)
   );
+  this.router.navigate(["/home"])
   
 }
 
