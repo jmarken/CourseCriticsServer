@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { NgModel } from '@angular/forms/src/directives/ng_model';
+import { Response } from '@angular/http'
+import { Router } from '@angular/router';
+import { AuthorizationService } from './authorization.service';
 
 @Component({
   selector: 'app-registeruser',
@@ -7,9 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisteruserComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authorizationService: AuthorizationService, private router: Router) { }
 
   ngOnInit() {
   }
+
+  
+
+  onSignUp(form: NgForm) {
+    const value = form.value;
+    console.log(value);
+   this.authorizationService.registerUser(value)
+   .subscribe(
+    (response: Response) => console.log(response),
+
+    (error) => console.log(error)
+  );
+  this.router.navigate(["/home"])
+  
+}
 
 }

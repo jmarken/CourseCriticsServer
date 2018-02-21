@@ -19,7 +19,7 @@ export class ReviewComponent implements OnInit {
   onSubmitReview(form: NgForm) {
       const value = form.value;
       console.log(value);
-      this.reviewService.getReviews(value)
+      this.reviewService.submitReview(value)
       .subscribe(
       (response: Response) => {
         const data = response.json();
