@@ -14,8 +14,6 @@ export class CoursepageComponent implements OnInit {
   course = [];
   id: string;
   reviews = [];
-  val : number;
-  size: number;
 
   constructor(private courseService: CoursesService,
   private route: ActivatedRoute,
@@ -47,11 +45,9 @@ export class CoursepageComponent implements OnInit {
   }
 
   getStars(rating : string): string {
-    console.log(rating);
-    this.val = parseFloat(rating);
-    this.size = this.val/5*100;
-    console.log(this.size + '%');
-    return this.size + '%';
+    let val = parseFloat(rating);
+    let size = val/5*100;
+    return size + '%';
   }
 
 
