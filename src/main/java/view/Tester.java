@@ -12,6 +12,7 @@ public class Tester {
 
 
         try{
+            System.out.println(controller.getCourse("ID1001 Network Engineering"));
             System.out.println(controller.getCourses());
 
 

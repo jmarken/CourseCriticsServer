@@ -12,6 +12,11 @@ public class ReviewDTO {
     private int difficulty;
     private int teaching;
     private String comment;
+    private String program;
+    private Boolean lecturesRequired;
+    private Boolean bookRequired;
+    private Boolean groupWork;
+    private int timeSpent;
 
 
     public ReviewDTO() {
@@ -26,6 +31,22 @@ public class ReviewDTO {
         this.difficulty = difficulty;
         this.teaching = teaching;
         this.comment = comment;
+    }
+
+    public ReviewDTO(String course, String school, String user, int quality, int relevance, int difficulty, int teaching, String comment, String program, Boolean lecturesRequired, Boolean bookRequired, Boolean groupWork, int timeSpent) {
+        this.course = course;
+        this.school = school;
+        this.user = user;
+        this.quality = quality;
+        this.relevance = relevance;
+        this.difficulty = difficulty;
+        this.teaching = teaching;
+        this.comment = comment;
+        this.program = program;
+        this.lecturesRequired = lecturesRequired;
+        this.bookRequired = bookRequired;
+        this.groupWork = groupWork;
+        this.timeSpent = timeSpent;
     }
 
     public String getCourse() {
@@ -90,6 +111,46 @@ public class ReviewDTO {
 
     public void setSchool(String school) {
         this.school = school;
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    public Boolean getLecturesRequired() {
+        return lecturesRequired;
+    }
+
+    public void setLecturesRequired(Boolean lecturesRequired) {
+        this.lecturesRequired = lecturesRequired;
+    }
+
+    public Boolean getBookRequired() {
+        return bookRequired;
+    }
+
+    public void setBookRequired(Boolean bookRequired) {
+        this.bookRequired = bookRequired;
+    }
+
+    public Boolean getGroupWork() {
+        return groupWork;
+    }
+
+    public void setGroupWork(Boolean groupWork) {
+        this.groupWork = groupWork;
+    }
+
+    public int getTimeSpent() {
+        return timeSpent;
+    }
+
+    public void setTimeSpent(int timeSpent) {
+        this.timeSpent = timeSpent;
     }
 
     @Override
