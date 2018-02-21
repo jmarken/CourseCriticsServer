@@ -88,6 +88,9 @@ public class Model{
             avgRelevance = avgRelevance + r.getRelevance();
             avgDifficulty = avgDifficulty + r.getDifficulty();
             avgTeaching = avgTeaching + r.getTeaching();
+            if(programs.equals("")){
+                programs = r.getProgram();
+            }
             if(!programs.contains(r.getProgram())){
                 programs = programs + ", " + r.getProgram();
             }
@@ -175,7 +178,11 @@ public class Model{
 
     public List<ReviewDTO> getUsersReviews(String userName){
         List<ReviewDTO> reviewDTOList = new ArrayList<ReviewDTO>();
-        for(Review review : dbo.getUsersReviews(userName)){
+        List<Review> reviewList = dbo.getUsersReviews(userName);
+        if(reviewList == null){
+            return null;
+        }
+        for(Review review : reviewList){
             ReviewDTO reviewDTO = new ReviewDTO(review.getCourse().getName(),
                                                 review.getCourse().getSchool().getName(),
                                                 review.getUser().getUsername(),
