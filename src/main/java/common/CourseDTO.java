@@ -24,15 +24,6 @@ public class CourseDTO {
         this.school = school;
     }
 
-    public CourseDTO(String name, String school, double avgQuality, double avgRelevance, double avgDifficulty, double avgTeaching) {
-        this.name = name;
-        this.school = school;
-        this.avgQuality = avgQuality;
-        this.avgRelevance = avgRelevance;
-        this.avgDifficulty = avgDifficulty;
-        this.avgTeaching = avgTeaching;
-    }
-
     public CourseDTO(String name, String school, double avgQuality, double avgRelevance, double avgDifficulty, double avgTeaching, String program, double avgLecturesReq, double avgBookReq, double avgGroupWork, double avgTime) {
         this.name = name;
         this.school = school;
