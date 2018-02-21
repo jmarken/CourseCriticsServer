@@ -16,6 +16,7 @@ import {RegisteruserComponent} from './registeruser/registeruser.component'
 import { UserService } from './user/user.service';
 import { CoursesService } from './courses/courses.service';
 import { FilterPipe } from './courses/filter.pipe';
+import { CoursepageComponent } from './courses/coursepage/coursepage.component';
 
 
 
@@ -29,7 +30,8 @@ import { FilterPipe } from './courses/filter.pipe';
     HomeComponent,
     UserComponent,
     RegisteruserComponent,
-    FilterPipe
+    FilterPipe,
+    CoursepageComponent
   ],
   imports: [
     BrowserModule,
