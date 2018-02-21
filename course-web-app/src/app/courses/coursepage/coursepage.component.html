@@ -1,7 +1,6 @@
-<p>
-{{ course.name }}
-{{ course.school }}
-</p>
+<div class="page-header">
+  <h1>{{ course.name }} <small>{{ course.school }}</small></h1>
+</div>
 <p *ngFor="let review of reviews">
   {{ review.comment }}
 </p>
