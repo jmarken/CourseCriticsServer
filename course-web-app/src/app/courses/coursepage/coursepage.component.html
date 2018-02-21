@@ -48,25 +48,49 @@
     {{ review.comment }}
     <hr>
     <p><strong>Scores:</strong></p>
-    <p>Quality:
-        <span class="stars">
-          <span [ngStyle]="{ 'width': getStars(review.quality) }"></span>
-        </span>
+    <div class="row">
+      <div class="col-xs-6">
+        <p>Quality:
+            <span class="stars">
+              <span [ngStyle]="{ 'width': getStars(review.quality) }"></span>
+            </span>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <p>Relevance: 
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(review.relevance) }"></span>
+          </span>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <p>Difficulty: 
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(review.difficulty) }"></span>
+          </span>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <p>Teaching:
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(review.teaching) }"></span>
+          </span>
+        </p>
+      </div>
+    </div>
+    <p>
+      Time spent per week: <strong>{{review.timeSpent}}</strong> hours
     </p>
-    <p>Relevance: 
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(review.relevance) }"></span>
-      </span>
+    <p>
+      Do you need to buy the book? <strong>{{review.bookRequired}}</strong>
     </p>
-    <p>Difficulty: 
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(review.difficulty) }"></span>
-      </span>
+    <p>
+      Do you recommend going to the lectures? <strong>{{review.lecturesRequired}}</strong>
     </p>
-    <p>Teaching:
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(review.teaching) }"></span>
-      </span>
+    <p>
+      Do you consider it to be group work? <strong>{{review.groupWork}}</strong>
     </p>
   </div>
+
+
 </div>
