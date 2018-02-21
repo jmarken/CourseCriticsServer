@@ -2,14 +2,24 @@
   <h1>{{ course.name }} <small>{{ course.school }}</small></h1>
 </div>
 <div class="panel panel-default">
+    <div class="panel-body" id="avg-scores">
+        <p><strong>The programs this course appears on are:</strong> {{ course.programs }}</p>
+
+      </div>
   <div class="panel-body" id="avg-scores">
     <p><strong>Average scores for this course:</strong></p>
-    <p>&nbsp;</p>
     <p>Quality: {{ course.avgQuality }}/5</p>
     <p>Relevance: {{ course.avgRelevance }}/5</p>
     <p>Difficulty: {{ course.avgDifficulty }}/5</p>
     <p>Teaching: {{ course.avgTeaching }}/5</p>
   </div>
+  <div class="panel-body" id="avg-scores">
+      <p><strong>Students thoughts for this course:</strong></p>
+      <p>{{course.avgLecturesReq}}% think you need to attend the lectures.</p>
+      <p>{{course.avgBookReq}}% think you need to buy the book.</p>
+      <p>{{course.avgGroupWork}}% considers the course to have group work.</p>
+      <p>On average, {{course.avgTime}} hours was spent per week.</p>
+    </div>
 </div>
 <div class="page-header">
     <h1><small>Reviews</small></h1>
@@ -20,7 +30,6 @@
   </div>
   <div class="panel-body">
     {{ review.comment }}
-    <p>&nbsp;</p>
     <p><strong>Scores:</strong></p>
     <p>Quality: {{ review.quality }}/5</p>
     <p>Relevance: {{ review.relevance }}/5</p>
