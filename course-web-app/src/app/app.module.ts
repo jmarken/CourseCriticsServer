@@ -19,6 +19,7 @@ import { FilterPipe } from './courses/filter.pipe';
 import { CoursepageComponent } from './courses/coursepage/coursepage.component';
 import { CommonModule } from '@angular/common';
 import { NgStyle } from '@angular/common';
+import { AuthorizationService } from './registeruser/authorization.service';
 
 
 
@@ -42,7 +43,7 @@ import { NgStyle } from '@angular/common';
     HttpModule
   ],
   providers: [ReviewService,
-  UserService, CoursesService],
+  UserService, CoursesService, AuthorizationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
