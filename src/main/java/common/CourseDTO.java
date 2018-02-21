@@ -10,6 +10,11 @@ public class CourseDTO {
     private double avgRelevance;
     private double avgDifficulty;
     private double avgTeaching;
+    private String programs;
+    private double avgLecturesReq;
+    private double avgBookReq;
+    private double avgGroupWork;
+    private double avgTime;
 
     public CourseDTO() {
     }
@@ -19,13 +24,18 @@ public class CourseDTO {
         this.school = school;
     }
 
-    public CourseDTO(String name, String school, double avgQuality, double avgRelevance, double avgDifficulty, double avgTeaching) {
+    public CourseDTO(String name, String school, double avgQuality, double avgRelevance, double avgDifficulty, double avgTeaching, String program, double avgLecturesReq, double avgBookReq, double avgGroupWork, double avgTime) {
         this.name = name;
         this.school = school;
         this.avgQuality = avgQuality;
         this.avgRelevance = avgRelevance;
         this.avgDifficulty = avgDifficulty;
         this.avgTeaching = avgTeaching;
+        this.programs = program;
+        this.avgLecturesReq = avgLecturesReq;
+        this.avgBookReq = avgBookReq;
+        this.avgGroupWork = avgGroupWork;
+        this.avgTime = avgTime;
     }
 
     public String getName() {
@@ -76,6 +86,46 @@ public class CourseDTO {
         this.avgTeaching = avgTeaching;
     }
 
+    public String getPrograms() {
+        return programs;
+    }
+
+    public void setPrograms(String programs) {
+        this.programs = programs;
+    }
+
+    public double getAvgLecturesReq() {
+        return avgLecturesReq;
+    }
+
+    public void setAvgLecturesReq(double avgLecturesReq) {
+        this.avgLecturesReq = avgLecturesReq;
+    }
+
+    public double getAvgBookReq() {
+        return avgBookReq;
+    }
+
+    public void setAvgBookReq(double avgBookReq) {
+        this.avgBookReq = avgBookReq;
+    }
+
+    public double getAvgGroupWork() {
+        return avgGroupWork;
+    }
+
+    public void setAvgGroupWork(double avgGroupWork) {
+        this.avgGroupWork = avgGroupWork;
+    }
+
+    public double getAvgTime() {
+        return avgTime;
+    }
+
+    public void setAvgTime(double avgTime) {
+        this.avgTime = avgTime;
+    }
+
     @Override
     public String toString() {
         return "CourseDTO{" +
@@ -85,6 +135,11 @@ public class CourseDTO {
                 ", avgRelevance=" + avgRelevance +
                 ", avgDifficulty=" + avgDifficulty +
                 ", avgTeaching=" + avgTeaching +
+                ", programs='" + programs + '\'' +
+                ", avgLecturesReq=" + avgLecturesReq + "%" +
+                ", avgBookReq=" + avgBookReq + "%" +
+                ", avgGroupWork=" + avgGroupWork + "%" +
+                ", avgTime=" + avgTime +
                 '}';
     }
 }

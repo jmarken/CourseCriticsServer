@@ -8,7 +8,9 @@ import model.Entity.School;
 import model.Entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.service.NullServiceException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DBOperations {
@@ -171,11 +173,17 @@ public class DBOperations {
     }
 
     public List<Review> getUsersReviews(String username){
+        List<Review> reviewList = new ArrayList<>();
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List<Review> reviewList = session.createQuery("from Review r where r.user='" + username + "'").getResultList();
-        session.getTransaction().commit();
-        return reviewList;
+        try{
+            reviewList = session.createQuery("from Review r where r.user='" + username + "'").getResultList();
+            session.getTransaction().commit();
+            return reviewList;
+        } catch (NullPointerException np){
+            session.getTransaction().rollback();
+            return reviewList;
+        }
     }
 
     public List<Review> getAllReviews(){

@@ -12,11 +12,9 @@ public class Tester {
 
 
         try{
-            System.out.println(controller.getCourses());
-
-
+            System.out.println(controller.getCourse("LI2010 Physiology I"));
         }catch(Exception e){
-            System.out.println(e.getMessage());
+           e.printStackTrace();
         }
     }
 }

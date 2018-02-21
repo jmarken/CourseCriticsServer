@@ -65,33 +65,70 @@ public class Model{
     public List<CourseDTO> getCourses(){
         List<CourseDTO> courseDTOList = new ArrayList<CourseDTO>();
         for(Course c : dbo.getAllCourses()){
-            int additions = 0;
-            double avgQ = 0;
-            double avgR = 0;
-            double avgD = 0;
-            double avgT = 0;
-            for(Review r : c.getReviews()){
-                avgQ = avgQ + r.getQuality();
-                avgR = avgR + r.getRelevance();
-                avgD = avgD + r.getDifficulty();
-                avgT = avgT + r.getTeaching();
-                additions++;
-            }
-            avgQ = avgQ/additions;
-            avgR = avgR/additions;
-            avgD = avgD/additions;
-            avgT = avgT/additions;
 
-            CourseDTO tempDTO = new CourseDTO(c.getName(),
-                                              c.getSchool().getName(),
-                                                roundToOneDecimal(avgQ, 1),
-                                                roundToOneDecimal(avgR, 1),
-                                                roundToOneDecimal(avgD, 1),
-                                                roundToOneDecimal(avgT, 1)
-                    );
-            courseDTOList.add(tempDTO);
+            courseDTOList.add(getAverages(c));
         }
         return courseDTOList;
+    }
+
+    private CourseDTO getAverages(Course c){
+        int additions = 0;
+        double avgQuality = 0;
+        double avgRelevance = 0;
+        double avgDifficulty = 0;
+        double avgTeaching = 0;
+        String programs = "";
+        double avgLecturesReq = 0;
+        double avgBookReq = 0;
+        double avgGroupWork = 0;
+        double avgTimeSpent = 0;
+
+        for(Review r : c.getReviews()){
+            avgQuality = avgQuality + r.getQuality();
+            avgRelevance = avgRelevance + r.getRelevance();
+            avgDifficulty = avgDifficulty + r.getDifficulty();
+            avgTeaching = avgTeaching + r.getTeaching();
+            if(programs.equals("")){
+                programs = r.getProgram();
+            }
+            if(!programs.contains(r.getProgram())){
+                programs = programs + ", " + r.getProgram();
+            }
+            if(r.getLectures_required()){
+                avgLecturesReq++;
+            }
+            if(r.getBook_required()){
+                avgBookReq++;
+            }
+            if(r.getGroup_work()){
+                avgGroupWork++;
+            }
+            avgTimeSpent = avgTimeSpent + r.getTime_spent();
+
+            additions++;
+        }
+        avgQuality = avgQuality/additions;
+        avgRelevance = avgRelevance/additions;
+        avgDifficulty = avgDifficulty/additions;
+        avgTeaching = avgTeaching/additions;
+        avgLecturesReq = (avgLecturesReq/additions)*100;
+        avgBookReq = (avgBookReq/additions)*100;
+        avgGroupWork = (avgGroupWork/additions)*100;
+        avgTimeSpent = avgTimeSpent/additions;
+
+        CourseDTO tempDTO = new CourseDTO(c.getName(),
+                c.getSchool().getName(),
+                roundToOneDecimal(avgQuality, 1),
+                roundToOneDecimal(avgRelevance, 1),
+                roundToOneDecimal(avgDifficulty, 1),
+                roundToOneDecimal(avgTeaching, 1),
+                programs,
+                roundToOneDecimal(avgLecturesReq, 1),
+                roundToOneDecimal(avgBookReq, 1),
+                roundToOneDecimal(avgGroupWork, 1),
+                roundToOneDecimal(avgTimeSpent, 1)
+        );
+        return tempDTO;
     }
 
     private static double roundToOneDecimal(double value, int precision) {
@@ -105,8 +142,7 @@ public class Model{
             return null;
         }
         else {
-            CourseDTO courseDTO = new CourseDTO(course.getName(), course.getSchool().getName());
-            return courseDTO;
+            return getAverages(course);
         }
     }
 
@@ -120,7 +156,12 @@ public class Model{
                                                 review.getRelevance(),
                                                 review.getDifficulty(),
                                                 review.getTeaching(),
-                                                review.getComment());
+                                                review.getComment(),
+                                                review.getProgram(),
+                                                review.getLectures_required(),
+                                                review.getBook_required(),
+                                                review.getGroup_work(),
+                                                review.getTime_spent());
             reviewDTOList.add(reviewDTO);
         }
         return reviewDTOList;
@@ -137,7 +178,11 @@ public class Model{
 
     public List<ReviewDTO> getUsersReviews(String userName){
         List<ReviewDTO> reviewDTOList = new ArrayList<ReviewDTO>();
-        for(Review review : dbo.getUsersReviews(userName)){
+        List<Review> reviewList = dbo.getUsersReviews(userName);
+        if(reviewList == null){
+            return null;
+        }
+        for(Review review : reviewList){
             ReviewDTO reviewDTO = new ReviewDTO(review.getCourse().getName(),
                                                 review.getCourse().getSchool().getName(),
                                                 review.getUser().getUsername(),
@@ -145,7 +190,12 @@ public class Model{
                                                 review.getRelevance(),
                                                 review.getDifficulty(),
                                                 review.getTeaching(),
-                                                review.getComment());
+                                                review.getComment(),
+                                                review.getProgram(),
+                                                review.getLectures_required(),
+                                                review.getBook_required(),
+                                                review.getGroup_work(),
+                                                review.getTime_spent());
             reviewDTOList.add(reviewDTO);
         }
         return reviewDTOList;
@@ -190,7 +240,12 @@ public class Model{
                                     reviewDTO.getRelevance(),
                                     reviewDTO.getDifficulty(),
                                     reviewDTO.getTeaching(),
-                                    reviewDTO.getComment());
+                                    reviewDTO.getComment(),
+                                    reviewDTO.getProgram(),
+                                    reviewDTO.getLecturesRequired(),
+                                    reviewDTO.getBookRequired(),
+                                    reviewDTO.getGroupWork(),
+                                    reviewDTO.getTimeSpent());
         try {
             dbo.saveReview(review);
         }catch (Error.SaveReviewException sre){
