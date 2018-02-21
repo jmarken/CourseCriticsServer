@@ -85,10 +85,10 @@
       Do you need to buy the book? <strong *ngIf="review.bookRequired; else no">Yes</strong>
     </p>
     <p>
-      Do you recommend going to the lectures? <strong *ngIf="review.bookRequired; else no">{{review.lecturesRequired}}</strong>
+      Do you recommend going to the lectures? <strong *ngIf="review.lecturesRequired; else no">Yes</strong>
     </p>
     <p>
-      Do you consider it to be group work? <strong *ngIf="review.bookRequired; else no">{{review.groupWork}}</strong>
+      Do you consider it to be group work? <strong *ngIf="review.groupWork; else no">Yes</strong>
     </p>
   </div>
   <ng-template #no><strong>No</strong></ng-template>
