@@ -8,8 +8,8 @@ import java.io.Serializable;
 public class Review implements Serializable{
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column
-    private int id;
+    @Column(name="id")
+    private int reviewID;
 
     @Id
     @ManyToOne
@@ -136,11 +136,11 @@ public class Review implements Serializable{
     }
 
     public int getId() {
-        return id;
+        return reviewID;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.reviewID = id;
     }
 
     public String getProgram() {

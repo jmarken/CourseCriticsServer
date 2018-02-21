@@ -4,6 +4,7 @@ import common.CourseDTO;
 import common.ReviewDTO;
 import common.SchoolDTO;
 import common.UserDTO;
+import model.Entity.User;
 import model.Model;
 
 import javax.inject.Inject;

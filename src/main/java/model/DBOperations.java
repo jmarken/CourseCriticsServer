@@ -169,12 +169,13 @@ public class DBOperations {
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         try{
-            reviewList = session.createQuery("from Review r where r.course='" + coursename + "'").getResultList();
+            reviewList = session.createQuery("FROM Review r WHERE r.course='" + coursename + "'").getResultList();
             session.getTransaction().commit();
             return reviewList;
         }catch (NullPointerException np){
             session.getTransaction().rollback();
             return reviewList;
+
         }
 
     }
