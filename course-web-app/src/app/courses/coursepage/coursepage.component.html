@@ -8,26 +8,36 @@
       </div>
   <div class="panel-body" id="avg-scores">
     <p><strong>Average scores for this course:</strong></p>
-    <p>Quality: 
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(course.avgQuality) }"></span>
-      </span>
-    </p>
-    <p>Relevance: 
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(course.avgRelevance) }"></span>
-      </span>
-    </p>
-    <p>Difficulty: 
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(course.avgDifficulty) }"></span>
-      </span>
-    </p>
-    <p>Teaching: 
-      <span class="stars">
-        <span [ngStyle]="{ 'width': getStars(course.avgTeaching) }"></span>
-      </span>
-    </p>
+    <div class="row">
+      <div class="col-xs-6">
+        <p>Quality: 
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(course.avgQuality) }"></span>
+          </span>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <p>Relevance: 
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(course.avgRelevance) }"></span>
+          </span>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <p>Difficulty: 
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(course.avgDifficulty) }"></span>
+          </span>
+        </p>
+      </div>
+      <div class="col-xs-6">
+        <p>Teaching: 
+          <span class="stars">
+            <span [ngStyle]="{ 'width': getStars(course.avgTeaching) }"></span>
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
   <div class="panel-body" id="avg-scores">
       <p><strong>Students thoughts for this course:</strong></p>
