@@ -165,11 +165,18 @@ public class DBOperations {
     }
 
     public List<Review> getCourseReviews(String coursename){
+        List<Review> reviewList = new ArrayList<>();
         session = sessionFactory.getCurrentSession();
         session.beginTransaction();
-        List<Review> reviewList = session.createQuery("from Review r where r.course='" + coursename + "'").getResultList();
-        session.getTransaction().commit();
-        return reviewList;
+        try{
+            reviewList = session.createQuery("from Review r where r.course='" + coursename + "'").getResultList();
+            session.getTransaction().commit();
+            return reviewList;
+        }catch (NullPointerException np){
+            session.getTransaction().rollback();
+            return reviewList;
+        }
+
     }
 
     public List<Review> getUsersReviews(String username){

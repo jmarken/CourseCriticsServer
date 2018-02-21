@@ -14,6 +14,10 @@ public class Controller {
     @Inject
     Model model = new Model();
 
+    public Controller() {
+        model.getCourse("");
+    }
+
     public void createUser(UserDTO registerUser) throws Exception{
         try {
             model.createUser(registerUser);
