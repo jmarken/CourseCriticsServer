@@ -8,13 +8,14 @@ import { ReviewService } from '../../review/review.service';
 @Component({
   selector: 'app-coursepage',
   templateUrl: './coursepage.component.html',
-  styleUrls: ['./coursepage.component.css']
+  styleUrls: ['./coursepage.component.css'],
 })
 export class CoursepageComponent implements OnInit {
   course = [];
   id: string;
   reviews = [];
-  
+  val : number;
+  size: number;
 
   constructor(private courseService: CoursesService,
   private route: ActivatedRoute,
@@ -45,11 +46,12 @@ export class CoursepageComponent implements OnInit {
     
   }
 
-  getStars(rating : string) {
+  getStars(rating : string): string {
     console.log(rating);
-    let val = parseFloat(rating);
-    let size = val/5*100;
-    return size + '%';
+    this.val = parseFloat(rating);
+    this.size = this.val/5*100;
+    console.log(this.size + '%');
+    return this.size + '%';
   }
 
 

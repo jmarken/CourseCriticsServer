@@ -17,6 +17,8 @@ import { UserService } from './user/user.service';
 import { CoursesService } from './courses/courses.service';
 import { FilterPipe } from './courses/filter.pipe';
 import { CoursepageComponent } from './courses/coursepage/coursepage.component';
+import { CommonModule } from '@angular/common';
+import { NgStyle } from '@angular/common';
 
 
 

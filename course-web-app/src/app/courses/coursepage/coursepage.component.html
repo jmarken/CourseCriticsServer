@@ -8,10 +8,26 @@
       </div>
   <div class="panel-body" id="avg-scores">
     <p><strong>Average scores for this course:</strong></p>
-    <p>Quality: {{ course.avgQuality }}/5</p>
-    <p>Relevance: {{ course.avgRelevance }}/5</p>
-    <p>Difficulty: {{ course.avgDifficulty }}/5</p>
-    <p>Teaching: {{ course.avgTeaching }}/5</p>
+    <p>Quality: 
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(course.avgQuality) }"></span>
+      </span>
+    </p>
+    <p>Relevance: 
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(course.avgRelevance) }"></span>
+      </span>
+    </p>
+    <p>Difficulty: 
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(course.avgDifficulty) }"></span>
+      </span>
+    </p>
+    <p>Teaching: 
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(course.avgTeaching) }"></span>
+      </span>
+    </p>
   </div>
   <div class="panel-body" id="avg-scores">
       <p><strong>Students thoughts for this course:</strong></p>
@@ -30,14 +46,27 @@
   </div>
   <div class="panel-body">
     {{ review.comment }}
+    <hr>
     <p><strong>Scores:</strong></p>
-    <p>Quality: {{ review.quality }}/5</p>
-    <p>Relevance: {{ review.relevance }}/5</p>
-    <p>Difficulty: {{ review.difficulty }}/5</p>
-    <p>Teaching: {{ review.teaching }}/5
+    <p>Quality:
         <span class="stars">
-          <span ng-style="{ 'width': getStars(review.teaching) }"></span>
+          <span [ngStyle]="{ 'width': getStars(review.quality) }"></span>
         </span>
+    </p>
+    <p>Relevance: 
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(review.relevance) }"></span>
+      </span>
+    </p>
+    <p>Difficulty: 
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(review.difficulty) }"></span>
+      </span>
+    </p>
+    <p>Teaching:
+      <span class="stars">
+        <span [ngStyle]="{ 'width': getStars(review.teaching) }"></span>
+      </span>
     </p>
   </div>
 </div>
