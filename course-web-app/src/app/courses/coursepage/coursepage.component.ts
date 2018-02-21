@@ -5,7 +5,6 @@ import { CoursesService } from '../courses.service';
 import { Course } from '../course.model';
 import { ReviewService } from '../../review/review.service';
 
-
 @Component({
   selector: 'app-coursepage',
   templateUrl: './coursepage.component.html',
@@ -19,8 +18,8 @@ export class CoursepageComponent implements OnInit {
 
   constructor(private courseService: CoursesService,
   private route: ActivatedRoute,
-private router: Router,
-private reviewService: ReviewService) { }
+  private router: Router,
+  private reviewService: ReviewService) { }
 
   ngOnInit() {
     this.route.params
@@ -44,7 +43,13 @@ private reviewService: ReviewService) { }
       (error) => console.log(error)
     );
     
+  }
 
+  getStars(rating : string) {
+    console.log(rating);
+    let val = parseFloat(rating);
+    let size = val/5*100;
+    return size + '%';
   }
 
 
