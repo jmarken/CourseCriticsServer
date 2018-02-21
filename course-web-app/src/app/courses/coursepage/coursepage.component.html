@@ -41,10 +41,10 @@
   </div>
   <div class="panel-body" id="avg-scores">
       <p><strong>Students thoughts for this course:</strong></p>
-      <p>{{course.avgLecturesReq}}% think you need to attend the lectures.</p>
-      <p>{{course.avgBookReq}}% think you need to buy the book.</p>
-      <p>{{course.avgGroupWork}}% considers the course to have group work.</p>
-      <p>On average, {{course.avgTime}} hours was spent per week.</p>
+      <p><strong>{{course.avgLecturesReq}}</strong>% think you need to attend the lectures.</p>
+      <p><strong>{{course.avgBookReq}}%</strong> think you need to buy the book.</p>
+      <p><strong>{{course.avgGroupWork}}%</strong> considers the course to have group work.</p>
+      <p>On average, <strong>{{course.avgTime}}</strong> hours was spent per week.</p>
     </div>
 </div>
 <div class="page-header">
@@ -55,7 +55,7 @@
     <h3 class="panel-title"><strong>{{ review.user }}</strong></h3>
   </div>
   <div class="panel-body">
-    {{ review.comment }}
+      <strong>Comment: </strong><p>{{ review.comment }}</p>
     <hr>
     <p><strong>Scores:</strong></p>
     <div class="row">
