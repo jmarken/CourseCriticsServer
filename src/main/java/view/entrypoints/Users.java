@@ -39,9 +39,24 @@ public class Users {
     @POST
     @Path("/{username}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
-    public void createReview(ReviewDTO reviewRequest) {
+    public void createReview(@PathParam("username") String username, view.rest.ReviewDTO reviewRequest) {
         try {
-            controller.createReview(reviewRequest);
+            ReviewDTO reviewDTO = new ReviewDTO(
+                    reviewRequest.getCourse(),
+                    reviewRequest.getSchool(),
+                    username,
+                    Integer.parseInt(reviewRequest.getQuality()),
+                    Integer.parseInt(reviewRequest.getRelevance()),
+                    Integer.parseInt(reviewRequest.getDifficulty()),
+                    Integer.parseInt(reviewRequest.getTeaching()),
+                    reviewRequest.getComment(),
+                    reviewRequest.getProgram(),
+                    Boolean.parseBoolean(reviewRequest.getLecturesRequired()),
+                    Boolean.parseBoolean(reviewRequest.getBookRequired()),
+                    Boolean.parseBoolean(reviewRequest.getGroupWork()),
+                    Integer.parseInt(reviewRequest.getTimeSpent())
+            );
+            controller.createReview(reviewDTO);
         } catch (Exception e) {
             throw new ServerError(e.getMessage());
         }
