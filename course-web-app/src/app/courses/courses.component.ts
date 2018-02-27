@@ -21,4 +21,10 @@ export class CoursesComponent implements OnInit {
 
   }
 
+  getStars(rating : string): string {
+    let val = parseFloat(rating);
+    let size = val/5*100;
+    return size + '%';
+  }
+
 }

@@ -6,6 +6,7 @@
 
 .input-group-addon {
     max-width: 40px;
+    min-width:40px;
 }
 
 .form {
@@ -20,6 +21,6 @@
 }
 
 #password-prefix, #conf-password-prefix {
-    font-size: 0.8em;
-    padding-left: 7px;
+    font-size: 0.6em;
+    padding-left: 10px;
 }

@@ -31,10 +31,26 @@
               <div id="collapse{{i}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading[i]">
                 <div class="panel-body">
                   <div class="col-xs-12 score-heading">Scores:</div>
-                  <div class="col-xs-6">Quality: {{course.avgQuality}}/5</div>
-                  <div class="col-xs-6">Relevance: {{course.avgRelevance}}/5</div>
-                  <div class="col-xs-6">Difficulty: {{course.avgDifficulty}}/5</div>
-                  <div class="col-xs-6">Teaching: {{course.avgTeaching}}/5</div>
+                  <div class="col-xs-6">Quality: 
+                    <span class="stars">
+                      <span [ngStyle]="{ 'width': getStars(course.avgQuality) }"></span>
+                    </span>
+                  </div>
+                  <div class="col-xs-6">Relevance:
+                      <span class="stars">
+                        <span [ngStyle]="{ 'width': getStars(course.avgRelevance) }"></span>
+                      </span>
+                  </div>
+                  <div class="col-xs-6">Difficulty:
+                    <span class="stars">
+                      <span [ngStyle]="{ 'width': getStars(course.avgDifficulty) }"></span>
+                    </span>
+                  </div>
+                  <div class="col-xs-6">Teaching:
+                    <span class="stars">
+                      <span [ngStyle]="{ 'width': getStars(course.avgTeaching) }"></span>
+                    </span>
+                  </div>
                   <div class="col-xs-6"></div>
                   <div class="col-xs-6"><a routerLink="/courses/{{course.name}}">See more <span class="glyphicon glyphicon-chevron-right"></span></a></div>
                 </div>
