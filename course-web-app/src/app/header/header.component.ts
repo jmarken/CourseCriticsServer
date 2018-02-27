@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Response } from '@angular/http/src/static_response';
 
 import { UserService } from '../user/user.service';
+import { element } from 'protractor';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { UserService } from '../user/user.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  visible: boolean = true;
 
   constructor(private userService: UserService) { }
 
@@ -39,22 +41,31 @@ export class HeaderComponent implements OnInit {
      }
 
 
-     loggedInUser(){
+    loggedInUser(){
       if(JSON.parse(localStorage.getItem('currentUser')) != null){
         return true;
       }
       else {
         return false;
       }
-     }
+    }
 
-     getuser() {
+    getuser() {
       return JSON.parse(localStorage.getItem('currentUser'));
-     }
+    }
 
-     logout(): void {
+    logout(): void {
       localStorage.removeItem('currentUser');
-  }
+    }
+
+    getVisibility(): void{
+      if(this.visible) {
+        let div = document.getElementById("userButton");
+        div.style.display = "none";
+        div = document.getElementById("logoutButton");
+        div.style.display = "inline-block";
+      }
+    }
 
 
 }

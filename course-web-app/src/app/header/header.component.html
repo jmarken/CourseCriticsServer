@@ -34,7 +34,10 @@
                 </div>
                 <button type="submit" class="btn btn-default" >Login</button>
             </form>
-            <p *ngIf="loggedInUser()"> {{ getuser() }} </p>
+            <div class="navbar-right">
+                <button id="userButton" class="btn btn-default" *ngIf="loggedInUser()" (click) ="getVisibility()">{{ getuser() }}</button>
+                <button id="logoutButton" class="btn btn-danger" *ngIf="loggedInUser()"(click)="logout()">Log out</button>
+            </div>
         </div>
     </div>
 </nav>
