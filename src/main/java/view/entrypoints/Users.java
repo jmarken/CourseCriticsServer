@@ -40,6 +40,7 @@ public class Users {
     @Path("/{username}/reviews")
     @Produces(MediaType.APPLICATION_JSON)
     public void createReview(@PathParam("username") String username, view.rest.ReviewDTO reviewRequest) {
+        System.out.println(reviewRequest.toString());
         try {
             ReviewDTO reviewDTO = new ReviewDTO(
                     reviewRequest.getCourse(),
@@ -56,6 +57,7 @@ public class Users {
                     Boolean.parseBoolean(reviewRequest.getGroupWork()),
                     Integer.parseInt(reviewRequest.getTimeSpent())
             );
+            System.out.println(reviewDTO.toString());
             controller.createReview(reviewDTO);
         } catch (Exception e) {
             throw new ServerError(e.getMessage());
