@@ -5,20 +5,8 @@
   
     <div class="input-group">
       <span class="input-group-addon" id="course-pre-box">Course:</span>
-      <input type="text" placeholder="XX0000" class="form-control" name="coursename" ngModel required>
-      <div class="input-group-btn bs-dropdown-to-select-group">
-        <button type="button" class="btn btn-default dropdown-toggle as-is bs-dropdown-to-select" data-toggle="dropdown">
-          <span data-bind="bs-drp-sel-label">HT17</span>
-          <input type="hidden" name="selected_value" data-bind="bs-drp-sel-value" value="" name="semester" ngModel>
-          <span class="caret"></span>
-          <span class="sr-only">Toggle Dropdown</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-          <li data-value="1"><a>HT17</a></li>
-          <li data-value="2"><a>VT18</a></li>
-          <li data-value="3"><a>HT18</a></li>
-        </ul>
-      </div>
+      <input type="text" placeholder="XX0000" class="form-control" name="course" ngModel required>
+     
     </div>
 
 
@@ -29,18 +17,14 @@
       </div>
     </div>
 
-    <label for="optional-radio1">Is the course optional?:</label>
-    <div class="form-check checkbox-qa">
-      <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="opt-radio1" name="opt-radio">
-      </span>
-      <span class="input-group-addon radio-right-text" id="optional-radio1-text">Yes.</span>
-
-      <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="opt-radio2" name="opt-radio">
-      </span>
-      <span class="input-group-addon" id="optional-radio2-text">No.</span>
+    <div class="form-check">
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon3">School:</span>
+        <input type="text" placeholder="XXXXX" class="form-control" name="school" ngModel required>
+      </div>
     </div>
+
+    
   
 
     <h1 class="col-xs-12">Your thoughts:</h1>
@@ -49,12 +33,12 @@
     <label for="lecture-check">Did you feel a need to attend the lectures?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="lecture-radio1" name="lecture-radio">
+        <input class="form-check-input" type="radio" id="lecture-radio1" name="lecturesRequired" value="true" ngModel>
       </span>
       <span class="input-group-addon radio-right-text" id="lecture-radio1-text">Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="lecture-radio2" name="lecture-radio">
+        <input class="form-check-input" type="radio" id="lecture-radio2" name="lecturesRequired" value="false" ngModel>
       </span>
       <span class="input-group-addon" id="lecture-radio2-text">No.</span>
     </div>
@@ -63,12 +47,12 @@
     <label for="book-check">Do you feel that the book is required?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="book-radio1" name="book-radio">
+        <input class="form-check-input" type="radio" id="book-radio1" name="bookRequired" value="true" ngModel>
       </span>
-      <span class="input-group-addon radio-right-text" id="book-radio-text">Yes.</span>
+      <span class="input-group-addon radio-right-text" id="book-radio-text" >Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="book-radio2" name="book-radio">
+        <input class="form-check-input" type="radio" id="book-radio2" name="bookRequired" value="false" ngModel>
       </span>
       <span class="input-group-addon" id="book-radio-text">No.</span>
     </div>
@@ -77,12 +61,12 @@
     <label for="group-work-check">Was there a lot of group work?:</label>
     <div class="form-check checkbox-qa">
       <span class="input-group-addon">
-        <input class="form-check-input" type="radio" id="group-work-radio1" name="group-work-radio">
+        <input class="form-check-input" type="radio" id="group-work-radio1" name="groupWork" value="true" ngModel>
       </span>
       <span class="input-group-addon radio-right-text" id="group-work-check-text">Yes.</span>
 
       <span class="input-group-addon radio-left-text">
-        <input class="form-check-input" type="radio" id="group-work-radio2" name="group-work-radio">
+        <input class="form-check-input" type="radio" id="group-work-radio2" name="groupWork" value="false" ngModel>
       </span>
       <span class="input-group-addon" id="group-work-radio-text">No.</span>
     </div>
@@ -91,7 +75,7 @@
     <label for="hours-input">How much time did you spend, weekly?:</label>
     <div class="form-check">
       <div id="hours-box" class="input-group">
-        <input class="form-control form-control-sm" id="hours-input" type="text" name="hours" ngModel>
+        <input class="form-control form-control-sm" id="hours-input" type="text" name="timeSpent" ngModel>
         <span class="input-group-addon">Hours</span>
       </div>
     </div>
@@ -102,42 +86,42 @@
 
     <div class="col-xs-4 rating-prefix">Quality:</div>
       <fieldset class="rating col-xs-8">
-          <input type="radio" id="qstar5" name="quality-rating" value="5" /><label class = "full" for="qstar5" title="Awesome - 5 stars"></label>
-          <input type="radio" id="qstar4" name="quality-rating" value="4" /><label class = "full" for="qstar4" title="Pretty good - 4 stars"></label>
-          <input type="radio" id="qstar3" name="quality-rating" value="3" /><label class = "full" for="qstar3" title="Meh - 3 stars"></label>
-          <input type="radio" id="qstar2" name="quality-rating" value="2" /><label class = "full" for="qstar2" title="Kinda bad - 2 stars"></label>
-          <input type="radio" id="qstar1" name="quality-rating" value="1" /><label class = "full" for="qstar1" title="Sucks big time - 1 star"></label>
+          <input type="radio" id="qstar5" name="quality" value="5"  value="5" ngModel/><label class = "full" for="qstar5" title="Awesome - 5 stars"></label>
+          <input type="radio" id="qstar4" name="quality" value="4"  value="4" ngModel /><label class = "full" for="qstar4" title="Pretty good - 4 stars"></label>
+          <input type="radio" id="qstar3" name="quality" value="3"  value="3" ngModel /><label class = "full" for="qstar3" title="Meh - 3 stars" ></label>
+          <input type="radio" id="qstar2" name="quality" value="2"  value="2" ngModel/><label class = "full" for="qstar2" title="Kinda bad - 2 stars" ></label>
+          <input type="radio" id="qstar1" name="quality" value="1"  value="1" ngModel/><label class = "full" for="qstar1" title="Sucks big time - 1 star" ></label>
       </fieldset>
     <div class="col-xs-4 rating-prefix">Relevance:</div>
     <fieldset class="rating col-xs-8">
-        <input type="radio" id="rstar5" name="relevance-rating" value="5" /><label class = "full" for="rstar5" title="Awesome - 5 stars"></label>
-        <input type="radio" id="rstar4" name="relevance-rating" value="4" /><label class = "full" for="rstar4" title="Pretty good - 4 stars"></label>
-        <input type="radio" id="rstar3" name="relevance-rating" value="3" /><label class = "full" for="rstar3" title="Meh - 3 stars"></label>
-        <input type="radio" id="rstar2" name="relevance-rating" value="2" /><label class = "full" for="rstar2" title="Kinda bad - 2 stars"></label>
-        <input type="radio" id="rstar1" name="relevance-rating" value="1" /><label class = "full" for="rstar1" title="Sucks big time - 1 star"></label>
+        <input type="radio" id="rstar5" name="relevance" value="5"  value="5" ngModel/><label class = "full" for="rstar5" title="Awesome - 5 stars" ></label>
+        <input type="radio" id="rstar4" name="relevance" value="4"  value="4" ngModel/><label class = "full" for="rstar4" title="Pretty good - 4 stars" ></label>
+        <input type="radio" id="rstar3" name="relevance" value="3"  value="3" ngModel/><label class = "full" for="rstar3" title="Meh - 3 stars" ></label>
+        <input type="radio" id="rstar2" name="relevance" value="2"  value="2" ngModel/><label class = "full" for="rstar2" title="Kinda bad - 2 stars" ></label>
+        <input type="radio" id="rstar1" name="relevance" value="1"  value="1" ngModel/><label class = "full" for="rstar1" title="Sucks big time - 1 star"></label>
     </fieldset>
     <div class="col-xs-4 rating-prefix">Difficulty:</div>
     <fieldset class="rating col-xs-8">
-        <input type="radio" id="dstar5" name="difficulty-rating" value="5" /><label class = "full" for="dstar5" title="Awesome - 5 stars"></label>
-        <input type="radio" id="dstar4" name="difficulty-rating" value="4" /><label class = "full" for="dstar4" title="Pretty good - 4 stars"></label>
-        <input type="radio" id="dstar3" name="difficulty-rating" value="3" /><label class = "full" for="dstar3" title="Meh - 3 stars"></label>
-        <input type="radio" id="dstar2" name="difficulty-rating" value="2" /><label class = "full" for="dstar2" title="Kinda bad - 2 stars"></label>
-        <input type="radio" id="dstar1" name="difficulty-rating" value="1" /><label class = "full" for="dstar1" title="Sucks big time - 1 star"></label>
+        <input type="radio" id="dstar5" name="difficulty" value="5"  value="5" ngModel/><label class = "full" for="dstar5" title="Awesome - 5 stars" ></label>
+        <input type="radio" id="dstar4" name="difficulty" value="4"  value="4" ngModel/><label class = "full" for="dstar4" title="Pretty good - 4 stars"></label>
+        <input type="radio" id="dstar3" name="difficulty" value="3"  value="3" ngModel/><label class = "full" for="dstar3" title="Meh - 3 stars"></label>
+        <input type="radio" id="dstar2" name="difficulty" value="2"  value="2" ngModel/><label class = "full" for="dstar2" title="Kinda bad - 2 stars" ></label>
+        <input type="radio" id="dstar1" name="difficulty" value="1"  value="1" ngModel/><label class = "full" for="dstar1" title="Sucks big time - 1 star" ></label>
     </fieldset>
     <div class="col-xs-4 rating-prefix">Teaching:</div>
     <fieldset class="rating col-xs-8">
-        <input type="radio" id="tstar5" name="teaching-rating" value="5" /><label class = "full" for="tstar5" title="Awesome - 5 stars"></label>
-        <input type="radio" id="tstar4" name="teaching-rating" value="4" /><label class = "full" for="tstar4" title="Pretty good - 4 stars"></label>
-        <input type="radio" id="tstar3" name="teaching-rating" value="3" /><label class = "full" for="tstar3" title="Meh - 3 stars"></label>
-        <input type="radio" id="tstar2" name="teaching-rating" value="2" /><label class = "full" for="tstar2" title="Kinda bad - 2 stars"></label>
-        <input type="radio" id="tstar1" name="teaching-rating" value="1" /><label class = "full" for="tstar1" title="Sucks big time - 1 star"></label>
+        <input type="radio" id="tstar5" name="teaching" value="5"  value="5" ngModel/><label class = "full" for="tstar5" title="Awesome - 5 stars" ></label>
+        <input type="radio" id="tstar4" name="teaching" value="4"  value="4" ngModel/><label class = "full" for="tstar4" title="Pretty good - 4 stars" ></label>
+        <input type="radio" id="tstar3" name="teaching" value="3"  value="3" ngModel/><label class = "full" for="tstar3" title="Meh - 3 stars" ></label>
+        <input type="radio" id="tstar2" name="teaching" value="2"  value="2" ngModel/><label class = "full" for="tstar2" title="Kinda bad - 2 stars" ></label>
+        <input type="radio" id="tstar1" name="teaching" value="1"  value="1" ngModel/><label class = "full" for="tstar1" title="Sucks big time - 1 star" ></label>
     </fieldset>
     
     
     <h1 class="col-xs-12">Comment:</h1>
 
 
-    <textarea class="form-control" rows="5" placeholder="Something you want to add?..."></textarea>
+    <textarea class="form-control" rows="5" placeholder="Something you want to add?..." name="comment" [(ngModel)]="comment"></textarea>
     <button id="submit-review" class="btn btn-default" [disabled]="!f.valid">Submit</button>
   
 </form>

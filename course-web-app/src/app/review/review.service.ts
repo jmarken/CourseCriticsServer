@@ -16,6 +16,7 @@ export class ReviewService {
           );
         }
     submitReview(review: string) {
-      return this.http.post("http://localhost:8080/api/users", review);
+        console.log("http://localhost:8080/api/users/" +  JSON.parse(localStorage.getItem('currentUser')) + "/reviews");
+      return this.http.post("http://localhost:8080/api/users/" +  JSON.parse(localStorage.getItem('currentUser')) + "/reviews", review);
    }
 }
