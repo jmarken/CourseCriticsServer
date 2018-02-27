@@ -18,13 +18,38 @@ export class HeaderComponent implements OnInit {
   }
 
   onLogin(form: NgForm) {
+   
     const value = form.value;
     console.log(value);
     this.userService.loginUser(value)
     .subscribe(
-      (response: Response) => console.log(response),
-      (error)=> console.log(error)
-    );
-  }
+      result => {
+        console.log(result);
+        if(result === true){
+         let data = JSON.parse(localStorage.getItem('currentUser'));
+         console.log(data); 
+         if(data != null){
+           console.log(true);
+           console.log("Testar logged in" + this.loggedInUser());
+         }
+        } else{
+           console.log("Wrong details")
+          }
+        });
+     }
+
+
+     loggedInUser(){
+      if(JSON.parse(localStorage.getItem('currentUser')) != null){
+        return true;
+      }
+      else {
+        return false;
+      }
+     }
+
+     getuser() {
+      return JSON.parse(localStorage.getItem('currentUser'));
+     }
 
 }

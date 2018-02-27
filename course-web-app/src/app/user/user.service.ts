@@ -19,14 +19,18 @@ export class UserService {
 
       loginUser(user: string) {
          return this.http.post("http://localhost:8080/api/users/login", user)
-         .map(user => {
+         .map  ((response: Response) => {
+            let success = response.json().success;
+            let username = response.json().username;
+            console.log(success)
             // login successful if there's a jwt token in the response
-            if (user) {
+            if (success) {
                 // store user details and jwt token in local storage to keep user logged in between page refreshes
-                localStorage.setItem('currentUser', JSON.stringify(user));
+                localStorage.setItem('currentUser', JSON.stringify(username));
+                return true;
+            } else {
+                return false;
             }
-
-            return user;
         });
 }
 }

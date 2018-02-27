@@ -23,17 +23,18 @@
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/review">Review</a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="!loggedInUser()">
                     <a class="nav-link" routerLink="/registeruser">Register</a>
                 </li>
             </ul>
-            <form id="login-form" class="navbar-form navbar-right" (ngSubmit)="onLogin(f)" #f="ngForm">
+            <form *ngIf="!loggedInUser()" id="login-form" class="navbar-form navbar-right" (ngSubmit)="onLogin(f)" #f="ngForm">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Username" name="username" ngModel required>
                     <input type="password" class="form-control" placeholder="Password" name="password" ngModel required>
                 </div>
                 <button type="submit" class="btn btn-default" >Login</button>
             </form>
+            <p *ngIf="loggedInUser()"> {{ getuser() }} </p>
         </div>
     </div>
 </nav>

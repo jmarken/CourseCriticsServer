@@ -31,6 +31,7 @@ public class Users {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public LoginResponse login(UserDTO userRequest) {
+        System.out.println(userRequest.getUsername() + " " + userRequest.getPassword());
         controller.login(userRequest);
         return controller.login(userRequest) ? new LoginResponse(userRequest.getUsername(), "Login Success") : new LoginResponse(userRequest.getUsername(), "Login Failure");
     }
