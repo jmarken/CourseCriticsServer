@@ -52,4 +52,9 @@ export class HeaderComponent implements OnInit {
       return JSON.parse(localStorage.getItem('currentUser'));
      }
 
+     logout(): void {
+      localStorage.removeItem('currentUser');
+  }
+
+
 }
