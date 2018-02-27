@@ -10,7 +10,7 @@ import { ReviewService } from './review.service';
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnInit {
-
+  data : string;
   constructor(private router: Router, private reviewService: ReviewService) { }
 
   ngOnInit() {
@@ -21,11 +21,12 @@ export class ReviewComponent implements OnInit {
       console.log(value);
       this.reviewService.submitReview(value)
       .subscribe(
-      (data: any[]) => console.log(data),
+      (response: Response) =>  console.log(response),
 
       (error) => console.log(error)
     );
       this.router.navigate(['/home']);
   }
+
 
 }
