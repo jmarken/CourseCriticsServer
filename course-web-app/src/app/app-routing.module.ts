@@ -7,8 +7,8 @@ import { RegisteruserComponent } from './registeruser/registeruser.component';
 import { CoursepageComponent } from './courses/coursepage/coursepage.component';
 
 const appRoutes: Routes = [
-    {path: '', redirectTo: '/home', pathMatch:'full'},
-    {path: 'courses/:id', component: CoursepageComponent},
+    { path: '', redirectTo: '/home', pathMatch:'full'},
+    { path: 'courses/:id', component: CoursepageComponent},
     { path: 'courses', component: CoursesComponent},
     { path: 'review', component: ReviewComponent},
     { path: 'home', component: HomeComponent},

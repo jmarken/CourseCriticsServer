@@ -7,10 +7,10 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" routerLink="/home">
             <img id="brand" src="/assets/images/icon.png" alt="Icon">
         </a>
-        <p class="navbar-text">CourseCritics</p>
+        <a routerLink="/home"><p class="navbar-text">CourseCritics</p></a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul id="navbar-items" class="nav navbar-nav mr-auto">
@@ -32,7 +32,7 @@
                     <input type="text" class="form-control" placeholder="Username" name="username" ngModel required>
                     <input type="password" class="form-control" placeholder="Password" name="password" ngModel required>
                 </div>
-                <button type="submit" class="btn btn-default" >Login</button>
+                <button type="submit" class="btn btn-default">Login</button>
             </form>
             <div class="navbar-right">
                 <button id="userButton" class="btn btn-default" *ngIf="loggedInUser()" (click) ="getVisibility()">{{ getuser() }}</button>

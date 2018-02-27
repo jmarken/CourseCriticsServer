@@ -2,7 +2,7 @@
     <div class="container">
         <div class="container col-xs-12">
           <div class="input-group">
-            <input type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search for courses or programs...">
+            <input id="searchBox" type="text" [(ngModel)]="searchText" class="form-control" placeholder="Search for courses or programs..." value="{{ trysearch}}">
             <span class="input-group-btn">
               <button class="btn btn-default" type="button">
                 <i class="glyphicon glyphicon-search"></i>

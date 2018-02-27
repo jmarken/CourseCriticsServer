@@ -42,7 +42,7 @@ import { AuthorizationService } from './registeruser/authorization.service';
     FormsModule,
     HttpModule
   ],
-  providers: [ReviewService,
+  providers: [ReviewService, FilterPipe,
   UserService, CoursesService, AuthorizationService],
   bootstrap: [AppComponent]
 })

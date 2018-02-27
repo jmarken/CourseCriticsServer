@@ -36,10 +36,6 @@ a.navbar-brand {
 	margin-bottom: -5px;
 }
 
-.navbar-right .btn {
-	margin-top: 8px;
-}
-
 #logoutButton {
 	display: none;
 }
