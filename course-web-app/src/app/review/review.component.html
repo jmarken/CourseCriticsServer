@@ -2,25 +2,21 @@
   <form (ngSubmit)="onSubmitReview(f)" #f="ngForm">
     <h1 class="col-xs-12">Course info:</h1>
 
-  
-    <div class="input-group">
-      <span class="input-group-addon" id="course-pre-box">Course:</span>
-      <input type="text" placeholder="XX0000" class="form-control" name="course" ngModel required>
-     
-    </div>
-
-
     <div class="form-check">
+      <div class="input-group">
+        <span class="input-group-addon" id="course-pre-box">Course:</span>
+        <input type="text" placeholder="XX0000" class="form-control" name="course" ngModel required>
+      
+      </div>
+
       <div class="input-group">
         <span class="input-group-addon" id="basic-addon3">Program:</span>
         <input type="text" placeholder="XXXXX" class="form-control" name="program" ngModel required>
       </div>
-    </div>
 
-    <div class="form-check">
       <div class="input-group">
-        <span class="input-group-addon" id="basic-addon3">School:</span>
-        <input type="text" placeholder="XXXXX" class="form-control" name="school" ngModel required>
+        <span class="input-group-addon" id="basic-addon">School:</span>
+        <input type="text" placeholder="E.g. Karlstads Universitet" class="form-control" name="school" ngModel required>
       </div>
     </div>
 
