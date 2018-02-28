@@ -12,7 +12,7 @@
         </a>
         <a routerLink="/home"><p class="navbar-text">CourseCritics</p></a>
         </div>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
+        <div id="navbar-collapse" class="collapse navbar-collapse">
             <ul id="navbar-items" class="nav navbar-nav mr-auto">
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/home">Home</a>
@@ -20,7 +20,7 @@
                 <li class="nav-item" routerLinkActive="active">
                     <a class="nav-link" routerLink="/courses">Courses</a>
                 </li>
-                <li class="nav-item" routerLinkActive="active">
+                <li class="nav-item" routerLinkActive="active" *ngIf="loggedInUser()">
                     <a class="nav-link" routerLink="/review">Review</a>
                 </li>
                 <li class="nav-item" routerLinkActive="active" *ngIf="!loggedInUser()">
