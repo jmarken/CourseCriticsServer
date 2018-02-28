@@ -22,7 +22,7 @@
     border-right-color: transparent;
 } 
 
-#course-pre-box {
+#course-prebox, #school-prebox, #program-prebox {
     min-width: 77px;
 }
 
