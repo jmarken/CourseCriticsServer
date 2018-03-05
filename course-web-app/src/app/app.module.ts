@@ -20,6 +20,7 @@ import { CoursepageComponent } from './courses/coursepage/coursepage.component';
 import { CommonModule } from '@angular/common';
 import { NgStyle } from '@angular/common';
 import { AuthorizationService } from './registeruser/authorization.service';
+import { ApplicationComponent } from './application/application.component';
 
 
 
@@ -34,7 +35,8 @@ import { AuthorizationService } from './registeruser/authorization.service';
     UserComponent,
     RegisteruserComponent,
     FilterPipe,
-    CoursepageComponent
+    CoursepageComponent,
+    ApplicationComponent
   ],
   imports: [
     BrowserModule,

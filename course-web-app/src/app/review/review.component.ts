@@ -25,7 +25,7 @@ export class ReviewComponent implements OnInit {
 
       (error) => console.log(error)
     );
-      this.router.navigate(['/home']);
+      this.router.navigate(['/courses/' + value.course]);
   }
 
 
